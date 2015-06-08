@@ -1,160 +1,60 @@
 package modelos;
 
-public class Funcionario
-{
-    private String nome;
-    private String turno;
-    private boolean cProduto;
-    private boolean eProduto;
-    private boolean aProdutos;
-    private boolean cCliente;
-    private boolean eClente;
-    private boolean aCliente;
-    private boolean venda;
-    private int codFuncioario;
+public class Funcionario extends Pessoa {
+
+    private int codFuncionario;
+    private String cargo;
+    private float salario;
+    private float cargaHoraria;
+    private int codDepartamento;
     private String senha;
-    
-    public String getsenha (){
+
+    public int getCodFuncionario() {
+        return codFuncionario;
+    }
+
+    public void setCodFuncionario(int codFuncionario) {
+        this.codFuncionario = codFuncionario;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public float getSalario() {
+        return salario;
+    }
+
+    public void setSalario(float salario) {
+        this.salario = salario;
+    }
+
+    public float getCargaHoraria() {
+        return cargaHoraria;
+    }
+
+    public void setCargaHoraria(float cargaHoraria) {
+        this.cargaHoraria = cargaHoraria;
+    }
+
+    public int getCodDepartamento() {
+        return codDepartamento;
+    }
+
+    public void setCodDepartamento(int codDepartamento) {
+        this.codDepartamento = codDepartamento;
+    }
+
+    public String getSenha() {
         return senha;
     }
-    public void setsenha(String senha){
-        this.senha= senha;
-    }    
-    
-    public int getcodFuncionario(){
-        return codFuncioario;
-    } 
-    public void setcodFuncionario(int codFuncionario){
-        this.codFuncioario = codFuncionario;        
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
-    /**
-     * @return the nome
-     */
-    public String getNome() {
-        return nome;
-    }
-
-    /**
-     * @param nome the nome to set
-     */
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    
-
-    /**
-     * @return the turno
-     */
-    public String getTurno() {
-        return turno;
-    }
-
-    /**
-     * @param turno the turno to set
-     */
-    public void setTurno(String turno) {
-        this.turno = turno;
-    }
-
-    /**
-     * @return the cProduto
-     */
-    public boolean iscProduto() {
-        return cProduto;
-    }
-
-    /**
-     * @param cProduto the cProduto to set
-     */
-    public void setcProduto(boolean cProduto) {
-        this.cProduto = cProduto;
-    }
-
-    /**
-     * @return the eProduto
-     */
-    public boolean iseProduto() {
-        return eProduto;
-    }
-
-    /**
-     * @param eProduto the eProduto to set
-     */
-    public void seteProduto(boolean eProduto) {
-        this.eProduto = eProduto;
-    }
-
-    /**
-     * @return the aProdutos
-     */
-    public boolean isaProdutos() {
-        return aProdutos;
-    }
-
-    /**
-     * @param aProdutos the aProdutos to set
-     */
-    public void setaProdutos(boolean aProdutos) {
-        this.aProdutos = aProdutos;
-    }
-
-    /**
-     * @return the cCliente
-     */
-    public boolean iscCliente() {
-        return cCliente;
-    }
-
-    /**
-     * @param cCliente the cCliente to set
-     */
-    public void setcCliente(boolean cCliente) {
-        this.cCliente = cCliente;
-    }
-
-    /**
-     * @return the eClente
-     */
-    public boolean iseClente() {
-        return eClente;
-    }
-
-    /**
-     * @param eClente the eClente to set
-     */
-    public void seteClente(boolean eClente) {
-        this.eClente = eClente;
-    }
-
-    /**
-     * @return the aCliente
-     */
-    public boolean isaCliente() {
-        return aCliente;
-    }
-
-    /**
-     * @param aCliente the aCliente to set
-     */
-    public void setaCliente(boolean aCliente) {
-        this.aCliente = aCliente;
-    }
-
-    /**
-     * @return the venda
-     */
-    public boolean isVenda() {
-        return venda;
-    }
-
-    /**
-     * @param venda the venda to set
-     */
-    public void setVenda(boolean venda) {
-        this.venda = venda;
-    }
-          
-    
 }

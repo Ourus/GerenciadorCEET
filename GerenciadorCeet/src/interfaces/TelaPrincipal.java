@@ -349,7 +349,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        TelaNovoUsuario TelaUsuario = new TelaNovoUsuario(this,rootPaneCheckingEnabled);
+        TelaNovoUsuario TelaUsuario = new TelaNovoUsuario(this,rootPaneCheckingEnabled,0);
         TelaUsuario.setVisible(true);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 

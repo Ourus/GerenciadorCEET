@@ -29,7 +29,7 @@ public class Senha
     
     public boolean validarSenha (Funcionario senhaFuncionario, String senha)
     {
-        if(senhaFuncionario.getsenha().equals(mdSenhaGerador(senha)))
+        if(senhaFuncionario.getSenha().equals(mdSenhaGerador(senha)))
         {
             return true;
         }

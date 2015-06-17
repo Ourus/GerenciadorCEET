@@ -574,13 +574,10 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        btConfirmarCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons 1/accept.png"))); // NOI18N
         btConfirmarCadastro.setText("Confirmar Cadastro");
 
-        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons 1/cancel.png"))); // NOI18N
         btCancelar.setText("Cancelar");
 
-        btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons 1/cross.png"))); // NOI18N
         btLimpar.setText("Limpar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

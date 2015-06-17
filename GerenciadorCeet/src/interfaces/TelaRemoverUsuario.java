@@ -61,10 +61,8 @@ public class TelaRemoverUsuario extends javax.swing.JDialog {
             jTable1.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        btRemover.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons 1/cross.png"))); // NOI18N
         btRemover.setText("Remover");
 
-        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons 1/cancel.png"))); // NOI18N
         btCancelar.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

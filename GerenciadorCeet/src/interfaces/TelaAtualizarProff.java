@@ -104,7 +104,6 @@ public class TelaAtualizarProff extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        btConfirmarCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons 1/accept.png"))); // NOI18N
         btConfirmarCadastro.setText("Atualizar");
 
         btCadastrarFormacao.setText("Cadastrar Formação");
@@ -331,7 +330,6 @@ public class TelaAtualizarProff extends javax.swing.JDialog {
                 .addGap(0, 13, Short.MAX_VALUE))
         );
 
-        btLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons 1/cross.png"))); // NOI18N
         btLimpar.setText("Limpar");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -516,7 +514,6 @@ public class TelaAtualizarProff extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons 1/cancel.png"))); // NOI18N
         btCancelar.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

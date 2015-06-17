@@ -99,10 +99,8 @@ public class TelaCadastroCurso extends javax.swing.JDialog {
         tbDisciplina.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tbDisciplina);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons 1/accept.png"))); // NOI18N
         jButton1.setText("Confirmar Curso");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons 1/cancel.png"))); // NOI18N
         jButton2.setText("Cancelar");
 
         btAdicionar.setText("jButton4");

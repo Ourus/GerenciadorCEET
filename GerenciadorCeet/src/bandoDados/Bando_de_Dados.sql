@@ -297,3 +297,12 @@ create table if not exists aula (
     foreign key (codLab) references labs (codLab),
     foreign key (codDiaHora) references diaHora(codDiaHora)
 );
+
+
+create table if not exists login(
+id int unsigned not null auto_increment,
+login varchar(50),
+senha varchar(50),
+nivel int unsigned not null,
+primary key (id)
+);

@@ -72,7 +72,7 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         pfSenha = new javax.swing.JPasswordField();
-        pfsenha2 = new javax.swing.JPasswordField();
+        pfSenha2 = new javax.swing.JPasswordField();
         tfLogin = new javax.swing.JTextField();
         lbNivel = new javax.swing.JLabel();
         cbxNivel = new javax.swing.JComboBox();
@@ -126,7 +126,7 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
                             .addComponent(jLabel3)
                             .addComponent(tfLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
-                            .addComponent(pfsenha2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(pfSenha2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(btSalvar)))
@@ -155,7 +155,7 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pfsenha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pfSenha2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvar)
@@ -266,6 +266,10 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(rootPane, "Preencha Todos Os Campos");
         }else
             {
+                if(pfSenha.getText() != pfSenha2.getText())
+                {
+                    JOptionPane.showMessageDialog(rootPane, "Senhas Não Correspondem", "Erro", 1);
+                }else{
                 // Preenchendo o objeto Login antes de enviá-lo ao banco
                 Login login = new Login();
                 
@@ -279,6 +283,7 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
                 // Recebendo novos valores do banco...
                  modelo.inserirListaLogins(tb_login.retornarLoginsCadastrados()); 
                  tbLoginsCadastrados.updateUI(); // F5
+            }
             }
     }//GEN-LAST:event_btSalvarActionPerformed
 
@@ -363,7 +368,7 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lbNivel;
     private javax.swing.JPasswordField pfSenha;
-    private javax.swing.JPasswordField pfsenha2;
+    private javax.swing.JPasswordField pfSenha2;
     private javax.swing.JTable tbLoginsCadastrados;
     private javax.swing.JTextField tfLogin;
     private javax.swing.JTabbedPane tpnAbas;

@@ -6,6 +6,8 @@
 
 package interfaces;
 
+import java.awt.Color;
+
 /**
  *
  * @author Herlen
@@ -18,6 +20,7 @@ public class TelaBuscarProfessor extends javax.swing.JDialog {
     public TelaBuscarProfessor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+       this.getContentPane().setBackground(Color.white);
     }
 
     /**
@@ -41,7 +44,7 @@ public class TelaBuscarProfessor extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -102,7 +105,7 @@ public class TelaBuscarProfessor extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

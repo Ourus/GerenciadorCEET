@@ -73,7 +73,6 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
 
         btgescolha = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         tfRua = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
@@ -93,9 +92,7 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
         cbxAtualizarAlunoMod = new javax.swing.JComboBox();
         jLabel19 = new javax.swing.JLabel();
         cbxAtualizarAlunoTurno = new javax.swing.JComboBox();
-        jLabel20 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel32 = new javax.swing.JLabel();
@@ -108,7 +105,6 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
         jLabel36 = new javax.swing.JLabel();
         cbxAnoLetivo = new javax.swing.JComboBox();
         jPanel4 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
         cbComprovReside = new javax.swing.JCheckBox();
         cbDeclaracaoEscolar = new javax.swing.JCheckBox();
         cbHistorioEscolar = new javax.swing.JCheckBox();
@@ -127,7 +123,6 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         tfEmail = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         tfRG = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
@@ -163,11 +158,8 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
         setTitle("Tela de Atualização do Aluno");
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Endereço", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(0, 51, 255))); // NOI18N
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel12.setText("Endereço");
 
         jLabel13.setText("Rua:");
 
@@ -200,7 +192,6 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel12)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -221,13 +212,12 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
                         .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbxAtualizarCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(23, 23, 23)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(tfRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,7 +235,7 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
         );
 
         pnCurso.setBackground(new java.awt.Color(255, 255, 255));
-        pnCurso.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pnCurso.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Curso", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(0, 51, 255))); // NOI18N
 
         jLabel9.setText("Matricula:");
 
@@ -265,9 +255,6 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
         jLabel19.setText("Turno:");
 
         cbxAtualizarAlunoTurno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel20.setText("Curso");
 
         javax.swing.GroupLayout pnCursoLayout = new javax.swing.GroupLayout(pnCurso);
         pnCurso.setLayout(pnCursoLayout);
@@ -291,16 +278,13 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel18)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbxAtualizarAlunoMod, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel20))
+                        .addComponent(cbxAtualizarAlunoMod, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnCursoLayout.setVerticalGroup(
             pnCursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnCursoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(22, 22, 22)
                 .addGroup(pnCursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbxAtualizarAlunoTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19)
@@ -317,10 +301,7 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
         );
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel21.setText("Escola em que Frenquentou o Ensino Médio");
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ensino médio", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(0, 51, 255))); // NOI18N
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -386,7 +367,6 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel21)
                                     .addComponent(jLabel32)
                                     .addComponent(jLabel33))
                                 .addGap(0, 0, Short.MAX_VALUE)))
@@ -400,9 +380,7 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel21)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(13, 13, 13)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel32)
@@ -424,10 +402,7 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel23.setText("Documentos Apresentados");
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Documentos Apresentados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(0, 51, 255))); // NOI18N
 
         cbComprovReside.setText("Cópia Comprov. Residência");
 
@@ -450,29 +425,25 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel23)
+                    .addComponent(cbComprovReside)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbComprovReside)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(cbCertidao)
-                                .addGap(18, 18, 18)
-                                .addComponent(cbRg)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbCpf)
-                            .addComponent(cbHistorioEscolar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbFotos)
-                            .addComponent(cbDeclaracaoEscolar))))
+                        .addComponent(cbCertidao)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbRg)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbCpf)
+                    .addComponent(cbHistorioEscolar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbFotos)
+                    .addComponent(cbDeclaracaoEscolar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbComprovReside)
                     .addComponent(cbHistorioEscolar)
@@ -487,7 +458,7 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Aluno", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(0, 51, 204))); // NOI18N
 
         jLabel2.setText("Nome:");
 
@@ -516,9 +487,6 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
                 tfEmailKeyTyped(evt);
             }
         });
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel11.setText("Aluno");
 
         jLabel24.setText("RG:");
 
@@ -715,7 +683,6 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
                                         .addComponent(jLabel37)
                                         .addGap(18, 18, 18)
                                         .addComponent(jLabel38))
-                                    .addComponent(jLabel11)
                                     .addComponent(jLabel2)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -731,16 +698,15 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
                                 .addComponent(pnFotoAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
                                 .addComponent(jButton5)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 21, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1005,8 +971,6 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField jFormattedTextField5;
     private javax.swing.JFormattedTextField jFormattedTextField6;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -1015,9 +979,6 @@ public class TelaAlunoAtualizar extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;

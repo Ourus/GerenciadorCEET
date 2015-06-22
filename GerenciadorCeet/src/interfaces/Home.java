@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  * @author Herlen
  */
 public class Home extends javax.swing.JFrame {
-
+    ArrayList contas = new ArrayList();
     /**
      * Creates new form Home
      */
@@ -29,6 +29,7 @@ public class Home extends javax.swing.JFrame {
        
        for (Login temp: teste.contasCadastradas())
        {
+           contas.add(temp.getLogin()+" "+temp.getSenha());
            System.out.println(temp.getLogin()+" "+temp.getSenha());
             
            
@@ -199,7 +200,7 @@ public class Home extends javax.swing.JFrame {
 
     private void logar()
     {
-        String login = "1", senha = "1";
+        String login = tfLogin.getText() + " " + pfSenha.getText();
         
       
        
@@ -207,7 +208,7 @@ public class Home extends javax.swing.JFrame {
             lbErro.setText("*Preencha Todos Os Campos.");
         } else {
 
-            if (tfLogin.getText().equals(login) && pfSenha.getText().equals(senha)) {
+            if (contas.contains(login)) {
                 JOptionPane.showMessageDialog(rootPane, "Logado Com Sucesso", "Bem Vindo", 1);
                 TelaPrincipal telaP = new TelaPrincipal();
                 telaP.setVisible(true);

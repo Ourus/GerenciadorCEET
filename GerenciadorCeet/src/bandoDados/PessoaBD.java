@@ -48,8 +48,7 @@ public class PessoaBD extends Conexao {
             return i;
         }
     }
-    
-    
+   
     public int cadastro(Pessoa pessoa, ArrayList <Endereco> endereco, Contato contato) {
         int i = 0;
         try {
@@ -65,7 +64,6 @@ public class PessoaBD extends Conexao {
             return i;
         }
     }
-    
     
     public int cadastro(Pessoa pessoa, ArrayList <Endereco> endereco, ArrayList <Contato> contato) {
         int i = 0;
@@ -84,10 +82,6 @@ public class PessoaBD extends Conexao {
     }
 
 // Excluir Pessoa
-    
-    
-    
-    
     
     public void excluirPessoa(Pessoa pessoa) {
         try {
@@ -215,12 +209,12 @@ public class PessoaBD extends Conexao {
             PreparedStatement stm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stm.setString(1, pessoa.getNome());
             stm.setString(2, pessoa.getRG());
-            stm.setString(3, pessoa.getDataExpedicao().get(Calendar.YEAR)+"-"+ pessoa.getDataExpedicao().get(Calendar.MONTH)+ "-"+ pessoa.getDataExpedicao().get(Calendar.DAY_OF_MONTH));
+            stm.setString(3, pessoa.getDataExpedicao().get(Calendar.YEAR)+"-"+ pessoa.getDataExpedicao().get(Calendar.MONTH+1)+ "-"+ pessoa.getDataExpedicao().get(Calendar.DAY_OF_MONTH));
             stm.setString(4, pessoa.getOrgaoEmissor());
             stm.setString(5, pessoa.getCpf());
             stm.setString(6, pessoa.getNaturalidade());
             // new Date(pessoa.getDataNacimento().get(Calendar.DAY_OF_MONTH), pessoa.getDataNacimento().get(Calendar.MONTH), pessoa.getDataNacimento().get(Calendar.YEAR))
-            stm.setString(7, pessoa.getDataNacimento().get(Calendar.YEAR) + "-" + pessoa.getDataNacimento().get(Calendar.MONTH) + "-" + pessoa.getDataNacimento().get(Calendar.DAY_OF_MONTH));
+            stm.setString(7, pessoa.getDataNacimento().get(Calendar.YEAR) + "-" + pessoa.getDataNacimento().get(Calendar.MONTH+1) + "-" + pessoa.getDataNacimento().get(Calendar.DAY_OF_MONTH));
             stm.setString(8, pessoa.getUf());
             stm.setString(9, pessoa.getNomePai());
             stm.setString(10, pessoa.getNomeMae());

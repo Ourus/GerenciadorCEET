@@ -43,12 +43,14 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
         // Criando Painel de Data 
         Calendar cal = Calendar.getInstance();
         dataNascimento.setBaseDate(cal.getTime());
+        dataNascimento.setBackground(Color.white);
         pnDataNascimento.add(dataNascimento);
         // Definindo o botão DateField (Data Inicio do Semestre) para seleção de uma data e atribuindo uma ação de mudança à ele.
         dataNascimento.setSize((pnDataNascimento.getWidth()), (pnDataNascimento.getHeight()));
 
         pnDataExpedicao.add(dataExpedicao);
         dataExpedicao.setSize((pnDataNascimento.getWidth()), (pnDataNascimento.getHeight()));
+        dataExpedicao.setBackground(Color.white);
 
         cbNao.setSelected(true);
         tfQuais.setEnabled(false);
@@ -750,6 +752,11 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
         btLimpar.setText("Limpar");
 
         btCancelar.setText("Cancelar");
+        btCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelarActionPerformed(evt);
+            }
+        });
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Documentos apresentados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(0, 51, 255))); // NOI18N
@@ -978,9 +985,10 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
     private void btConfirmarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarCadastroActionPerformed
         // TODO add your handling code here:
         Calendar cal = Calendar.getInstance();
+        Calendar cal2 = Calendar.getInstance();
         DecimalFormat format = new DecimalFormat("00");
         cal.setTime((java.util.Date) dataExpedicao.getValue());
-
+        cal2.setTime((java.util.Date) dataNascimento.getValue());
 // aluno
         if(tfNomeAluno.getText().isEmpty() || tfNomeMae.getText().isEmpty() || tfNaturalidade.getText().isEmpty()
               || tfNomePai.getText().isEmpty() || tfRG.getText().isEmpty() || ftCPF.getText() == null || tfOrgaoEmissor.getText().isEmpty()
@@ -999,8 +1007,7 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
         alunoN.setCorRaca(cbxCorRaca.getSelectedItem()+"");
         alunoN.setCpf(ftCPF.getText());
         alunoN.setDataExpedicao(cal);
-        cal.setTime((java.util.Date) dataNascimento.getValue());
-        alunoN.setDataNacimento(cal);
+        alunoN.setDataNacimento(cal2);
         alunoN.setMatricula(tfMatricula.getText());
         alunoN.setNaturalidade(tfNaturalidade.getText());
         alunoN.setNome(tfNomeAluno.getText());
@@ -1153,6 +1160,10 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
             compFoto = "false";
         }
     }//GEN-LAST:event_cbFotosActionPerformed
+
+    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+      
+    }//GEN-LAST:event_btCancelarActionPerformed
 
     /**
      * @param args the command line arguments

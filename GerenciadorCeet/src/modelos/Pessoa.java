@@ -24,6 +24,8 @@ public class Pessoa
     private String RG;
     private String orgaoEmissor;
     private Calendar dataExpedicao;
+    private String compFoto;
+    private String compResidencia;
     private ArrayList <Endereco> enderecos = new ArrayList ();
     private ArrayList <Contato> contatos = new ArrayList();
 
@@ -181,6 +183,34 @@ public class Pessoa
 
     public void setDataExpedicao(Calendar dataExpedicao) {
         this.dataExpedicao = dataExpedicao;
+    }
+
+    /**
+     * @return the compFoto
+     */
+    public String getCompFoto() {
+        return compFoto;
+    }
+
+    /**
+     * @param compFoto the compFoto to set
+     */
+    public void setCompFoto(String compFoto) {
+        this.compFoto = compFoto;
+    }
+
+    /**
+     * @return the compResidencia
+     */
+    public String getCompResidencia() {
+        return compResidencia;
+    }
+
+    /**
+     * @param compResidencia the compResidencia to set
+     */
+    public void setCompResidencia(String compResidencia) {
+        this.compResidencia = compResidencia;
     }
   
     

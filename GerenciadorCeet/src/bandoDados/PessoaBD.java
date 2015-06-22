@@ -211,7 +211,7 @@ public class PessoaBD extends Conexao {
         try {
             conectarBanco();
             String sql = "insert into pessoa (nome,rg,dataExpedicao,orgaoEmissor,cpf, naturalidade,dataNascimento,uf,"
-                    + "nomePai,nomeMae,foto,sexo,corRaca) values(?,?,?,?,?,?,?,?,?,?,?,?,?);";
+                    + "nomePai,nomeMae,foto,sexo,corRaca,compResidencia,compFoto) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
             PreparedStatement stm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stm.setString(1, pessoa.getNome());
             stm.setString(2, pessoa.getRG());
@@ -227,7 +227,8 @@ public class PessoaBD extends Conexao {
             stm.setBlob(11, pessoa.getFoto());
             stm.setString(12, pessoa.getSexo());
             stm.setString(13, pessoa.getCorRaca());
-            
+            stm.setString(14, pessoa.getCompResidencia());
+            stm.setString(15, pessoa.getCompFoto());
             
             stm.executeUpdate();
 

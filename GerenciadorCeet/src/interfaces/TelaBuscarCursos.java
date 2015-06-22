@@ -20,7 +20,7 @@ public class TelaBuscarCursos extends javax.swing.JDialog {
     public TelaBuscarCursos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        this.getContentPane().setBackground(new Color(59,135,199));
+        this.getContentPane().setBackground(Color.white);
         this.setLocationRelativeTo(null); // deixa no centro da tela
         
         cbxTelaCursos.removeAllItems();
@@ -82,7 +82,7 @@ public class TelaBuscarCursos extends javax.swing.JDialog {
         setTitle("Buscar Curso");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jLabel1.setText("Cursos:");
 

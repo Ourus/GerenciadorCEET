@@ -270,16 +270,17 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
 
-        if(tfLogin.getText().isEmpty() || pfSenha.getText().isEmpty() || pfsenha2.getText().isEmpty())
+        
+        if(tfLogin.getText().isEmpty() && pfSenha.getText().isEmpty() && pfsenha2.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(rootPane, "Preencha Todos Os Campos");
+            JOptionPane.showMessageDialog(rootPane, "Preencha Todos Os Campos!");
         }else
             {
-                if(pfSenha.getText() != pfsenha2.getText())
+                if(!pfSenha.getText().equals(pfsenha2.getText()))
                 {
-                   
-                    JOptionPane.showMessageDialog(rootPane, "Senhas Não compativeis");
-                    
+                    JOptionPane.showMessageDialog(rootPane, "Senhas Não compativeis!");
+                    pfSenha.setText("");
+                    pfsenha2.setText("");
                 }
                 else{
                 // Preenchendo o objeto Login antes de enviá-lo ao banco
@@ -294,7 +295,11 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
                 
                 // Recebendo novos valores do banco...
                  modelo.inserirListaLogins(tb_login.retornarLoginsCadastrados()); 
-                 tbLoginsCadastrados.updateUI(); // F5
+                 tbLoginsCadastrados.updateUI();
+                 // F5
+                  pfSenha.setText("");
+                  pfsenha2.setText("");
+                  tfLogin.setText("");
                 }
             }
     }//GEN-LAST:event_btSalvarActionPerformed

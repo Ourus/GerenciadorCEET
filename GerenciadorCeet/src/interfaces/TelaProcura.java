@@ -6,20 +6,27 @@
 
 package interfaces;
 
+import bandoDados.PessoaBD;
 import java.awt.Color;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import modelos_tabela.ModeloTabelaAluno;
 
 /**
  *
  * @author alunom
  */
 public class TelaProcura extends javax.swing.JDialog {
-
+    PessoaBD tb_pessoa = new PessoaBD();
+    ModeloTabelaAluno modelo = new ModeloTabelaAluno();
     /**
      * Creates new form TelaProcura
      */
     public TelaProcura(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        modelo.inserirListaPessoas(tb_pessoa.listarPessoasBanco());
+        tbProcura.setModel(modelo);
         this.getContentPane().setBackground(new Color(59,135,199));
     }
 
@@ -38,8 +45,8 @@ public class TelaProcura extends javax.swing.JDialog {
         tbProcura = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         tfMatricula = new javax.swing.JTextField();
+        btVisualizar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -65,9 +72,19 @@ public class TelaProcura extends javax.swing.JDialog {
 
         jLabel2.setText("Matrícula:");
 
-        jButton1.setText("OK");
+        btVisualizar.setText("Visualizar");
+        btVisualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVisualizarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Cancelar");
+        jButton1.setText("Excluir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,10 +105,10 @@ public class TelaProcura extends javax.swing.JDialog {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(153, 153, 153)
+                .addGap(136, 136, 136)
+                .addComponent(btVisualizar)
+                .addGap(50, 50, 50)
                 .addComponent(jButton1)
-                .addGap(46, 46, 46)
-                .addComponent(jButton2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -107,8 +124,8 @@ public class TelaProcura extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btVisualizar)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -120,6 +137,29 @@ public class TelaProcura extends javax.swing.JDialog {
         
         tbProcura.getToolTipText();
     }//GEN-LAST:event_tbProcuraMouseClicked
+
+    private void btVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVisualizarActionPerformed
+        if(tbProcura.getSelectedRow() != -1)
+        {
+            tb_pessoa.localizarPessoa(modelo.retornarListaPessoas().get(tbProcura.getSelectedRow()));
+            this.setVisible(false);
+            TelaInformacoes telaT = new TelaInformacoes();
+            telaT.setVisible(true);
+        }
+    }//GEN-LAST:event_btVisualizarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(tbProcura.getSelectedRow() != -1)
+        {
+            tb_pessoa.excluirPessoa(modelo.retornarListaPessoas().get(tbProcura.getSelectedRow()));
+            modelo.inserirListaPessoas(tb_pessoa.listarPessoasBanco());
+            tbProcura.updateUI();
+            JOptionPane.showMessageDialog(rootPane, "Aluno Excluido Com Sucesso");
+        }else
+        {
+            JOptionPane.showMessageDialog(rootPane, "Nenhum Aluno Selecionado", "Erro", 0);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,8 +204,8 @@ public class TelaProcura extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btVisualizar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

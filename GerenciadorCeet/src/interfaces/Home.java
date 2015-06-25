@@ -28,15 +28,9 @@ public class Home extends javax.swing.JFrame {
        ConexaoBanco teste = new ConexaoBanco();
        
        for (Login temp: teste.contasCadastradas())
-       {
+       {    
            contas.add(temp.getLogin()+" "+temp.getSenha());
-           System.out.println(temp.getLogin()+" "+temp.getSenha());
-            
-           
        }
-         
-        
-        
     }
 
     /**

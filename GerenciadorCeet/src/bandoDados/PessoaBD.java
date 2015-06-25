@@ -339,7 +339,7 @@ public class PessoaBD extends Conexao {
         try {
             conectarBanco();
             stm = con.createStatement();
-            String sql = "select * from aluno where codPessoa=" + pessoa.getCodPessoa() + ";";
+            String sql = "select * from pessoa where codPessoa=" + pessoa.getCodPessoa() + ";";
             ResultSet tabelaResultante = stm.executeQuery(sql);
             pessoaCadastrada.setCodPessoa(tabelaResultante.getInt("codPessoa"));
 

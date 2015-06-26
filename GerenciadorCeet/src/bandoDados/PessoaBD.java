@@ -31,8 +31,7 @@ public class PessoaBD extends Conexao {
         }
     }
 
-     // ===================================================================================
-    
+    // ===================================================================================
     public int cadastro(Pessoa pessoa, Endereco endereco, ArrayList<Contato> contato) {
         int i = 0;
         try {
@@ -48,9 +47,8 @@ public class PessoaBD extends Conexao {
             return i;
         }
     }
-    
-    
-    public int cadastro(Pessoa pessoa, ArrayList <Endereco> endereco, Contato contato) {
+
+    public int cadastro(Pessoa pessoa, ArrayList<Endereco> endereco, Contato contato) {
         int i = 0;
         try {
             i = cadastroPessoaKey(pessoa);
@@ -65,9 +63,8 @@ public class PessoaBD extends Conexao {
             return i;
         }
     }
-    
-    
-    public int cadastro(Pessoa pessoa, ArrayList <Endereco> endereco, ArrayList <Contato> contato) {
+
+    public int cadastro(Pessoa pessoa, ArrayList<Endereco> endereco, ArrayList<Contato> contato) {
         int i = 0;
         try {
             i = cadastroPessoaKey(pessoa);
@@ -84,11 +81,6 @@ public class PessoaBD extends Conexao {
     }
 
 // Excluir Pessoa
-    
-    
-    
-    
-    
     public void excluirPessoa(Pessoa pessoa) {
         try {
             conectarBanco();
@@ -147,8 +139,7 @@ public class PessoaBD extends Conexao {
 
     }
 
-    private void cadastroEndereco(int pessoa, ArrayList<Endereco> ende) 
-    {
+    private void cadastroEndereco(int pessoa, ArrayList<Endereco> ende) {
 
         try {
             conectarBanco();
@@ -188,7 +179,7 @@ public class PessoaBD extends Conexao {
 
     private void cadastroContato(int pessoa, ArrayList<Contato> cont) {
         try {
-            for (Contato contato :cont) {
+            for (Contato contato : cont) {
                 conectarBanco();
 
                 stm = con.createStatement();
@@ -215,7 +206,7 @@ public class PessoaBD extends Conexao {
             PreparedStatement stm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stm.setString(1, pessoa.getNome());
             stm.setString(2, pessoa.getRG());
-            stm.setString(3, pessoa.getDataExpedicao().get(Calendar.YEAR)+"-"+ pessoa.getDataExpedicao().get(Calendar.MONTH)+ "-"+ pessoa.getDataExpedicao().get(Calendar.DAY_OF_MONTH));
+            stm.setString(3, pessoa.getDataExpedicao().get(Calendar.YEAR) + "-" + pessoa.getDataExpedicao().get(Calendar.MONTH) + "-" + pessoa.getDataExpedicao().get(Calendar.DAY_OF_MONTH));
             stm.setString(4, pessoa.getOrgaoEmissor());
             stm.setString(5, pessoa.getCpf());
             stm.setString(6, pessoa.getNaturalidade());
@@ -227,8 +218,7 @@ public class PessoaBD extends Conexao {
             stm.setBlob(11, pessoa.getFoto());
             stm.setString(12, pessoa.getSexo());
             stm.setString(13, pessoa.getCorRaca());
-            
-            
+
             stm.executeUpdate();
 
             ResultSet codPessoa = stm.getGeneratedKeys();
@@ -410,6 +400,7 @@ public class PessoaBD extends Conexao {
                 novoPessoa.setCodPessoa(listasPessoaCadastradas.getInt("codPessoa"));
                 novoPessoa.setCpf(listasPessoaCadastradas.getString("cpf"));
                 Calendar cal = Calendar.getInstance();
+                novoPessoa.setSenha(listasPessoaCadastradas.getString("senha"));
                 cal.setTime(listasPessoaCadastradas.getDate("dataNascimento"));
                 novoPessoa.setDataNacimento(cal);
                 novoPessoa.setFoto((Blob) listasPessoaCadastradas.getBlob("foto"));

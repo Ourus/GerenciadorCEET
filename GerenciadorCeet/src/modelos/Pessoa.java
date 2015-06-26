@@ -22,6 +22,7 @@ public class Pessoa
     private String nomeMae;
     private String nomePai;
     private String RG;
+    private String senha;
     private String orgaoEmissor;
     private Calendar dataExpedicao;
     private ArrayList <Endereco> enderecos = new ArrayList ();
@@ -181,6 +182,14 @@ public class Pessoa
 
     public void setDataExpedicao(Calendar dataExpedicao) {
         this.dataExpedicao = dataExpedicao;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
   
     

@@ -1,8 +1,10 @@
 package bandoDados;
 
+import com.mysql.jdbc.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -12,147 +14,15 @@ public class AlunoBD extends PessoaBD {
     // cadastros 
 
     // Metodos Principais : alunos , endereço, contato, deempenho e escolaridade 
-   
-    public void cadastro(Aluno aluno, Endereco endereco, Contato contato, ArrayList <Escolaridade> escolaridade, ArrayList <Desempenho> desempenho) {
+    public void cadastro(Aluno aluno, Endereco endereco, Contato contato, ArrayList<Escolaridade> escolaridade, ArrayList<Desempenho> desempenho) {
         int key = 0;
         try {
             key = super.cadastro(aluno, endereco, contato);
 
             conectarBanco();
             stm = con.createStatement();
-                     
+
             cadastroEscolaridade(key, escolaridade);
-            cadastroDesempenho(key, desempenho);
-
-            String sql = "insert into aluno (codAluno,matricula,certidaoNascimento,compEscolaridade,status,observacao)"
-                    + "value(" + key + ",'" + aluno.getMatricula() + "','" + aluno.getCertidaoNascimento() + "',"
-                    + "'" + aluno.getComprovanteEscolarida() + "','" + aluno.getStatus() + "','" + aluno.getObservacao() + "');";
-
-            JOptionPane.showMessageDialog(null, "Aluno: " + aluno.getNome() + "\n \t Cadastrado com sucesso");
-
-            stm.executeUpdate(sql);
-
-            System.out.println(key);
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        } finally {
-            desconectarBanco();
-
-        }
-
-    } 
-   
-   public void cadastro(Aluno aluno, Endereco endereco, Contato contato, Desempenho desempenho, Escolaridade escolaridade) {
-        int key = 0;
-        try {
-            key = super.cadastro(aluno, endereco, contato);
-
-            conectarBanco();
-            stm = con.createStatement();
-                     
-            cadastroDesempenho(key, desempenho);
-            cadastroEscolaridade(key, escolaridade);
-
-            String sql = "insert into aluno (codAluno,matricula,certidaoNascimento,compEscolaridade,status,observacao)"
-                    + "value(" + key + ",'" + aluno.getMatricula() + "','" + aluno.getCertidaoNascimento() + "',"
-                    + "'" + aluno.getComprovanteEscolarida() + "','" + aluno.getStatus() + "','" + aluno.getObservacao() + "');";
-
-            JOptionPane.showMessageDialog(null, "Aluno: " + aluno.getNome() + "\n \t Cadastrado com sucesso");
-
-            stm.executeUpdate(sql);
-
-            System.out.println(key);
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        } finally {
-            desconectarBanco();
-
-        }
-
-    }
-  
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   // Cadastro de alunos , endereço, contato, deempenho e escolaridade 
-   
-   public void cadastro(Aluno aluno, Endereco endereco, Contato contato, Desempenho desempenho) {
-        int key = 0;
-        try {
-            key = super.cadastro(aluno, endereco, contato);
-
-            conectarBanco();
-            stm = con.createStatement();
-                     
-            cadastroDesempenho(key, desempenho);
-
-            String sql = "insert into aluno (codAluno,matricula,certidaoNascimento,compEscolaridade,status,observacao)"
-                    + "value(" + key + ",'" + aluno.getMatricula() + "','" + aluno.getCertidaoNascimento() + "',"
-                    + "'" + aluno.getComprovanteEscolarida() + "','" + aluno.getStatus() + "','" + aluno.getObservacao() + "');";
-
-            JOptionPane.showMessageDialog(null, "Aluno: " + aluno.getNome() + "\n \t Cadastrado com sucesso");
-
-            stm.executeUpdate(sql);
-
-            System.out.println(key);
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        } finally {
-            desconectarBanco();
-
-        }
-
-    }
-     
-   public void cadastro(Aluno aluno, Endereco endereco, Contato contato, Escolaridade escolaridade) {
-        int key = 0;
-        try {
-            key = super.cadastro(aluno, endereco, contato);
-
-            conectarBanco();
-            stm = con.createStatement();
-                     
-            cadastroEscolaridade(key, escolaridade);
-
-            String sql = "insert into aluno (codAluno,matricula,certidaoNascimento,compEscolaridade,status,observacao)"
-                    + "value(" + key + ",'" + aluno.getMatricula() + "','" + aluno.getCertidaoNascimento() + "',"
-                    + "'" + aluno.getComprovanteEscolarida() + "','" + aluno.getStatus() + "','" + aluno.getObservacao() + "');";
-
-            JOptionPane.showMessageDialog(null, "Aluno: " + aluno.getNome() + "\n \t Cadastrado com sucesso");
-
-            stm.executeUpdate(sql);
-
-            System.out.println(key);
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        } finally {
-            desconectarBanco();
-
-        }
-
-    }
-   
-   public void cadastro(Aluno aluno, Endereco endereco,ArrayList <Desempenho> desempenho ,Contato contato) {
-        int key = 0;
-        try {
-            key = super.cadastro(aluno, endereco, contato);
-
-            conectarBanco();
-            stm = con.createStatement();
-                     
             cadastroDesempenho(key, desempenho);
 
             String sql = "insert into aluno (codAluno,matricula,certidaoNascimento,compEscolaridade,status,observacao)"
@@ -174,14 +44,15 @@ public class AlunoBD extends PessoaBD {
 
     }
 
-   public void cadastro(Aluno aluno, Endereco endereco, Contato contato, ArrayList <Escolaridade> escolaridade) {
+    public void cadastro(Aluno aluno, Endereco endereco, Contato contato, Desempenho desempenho, Escolaridade escolaridade) {
         int key = 0;
         try {
             key = super.cadastro(aluno, endereco, contato);
 
             conectarBanco();
             stm = con.createStatement();
-                     
+
+            cadastroDesempenho(key, desempenho);
             cadastroEscolaridade(key, escolaridade);
 
             String sql = "insert into aluno (codAluno,matricula,certidaoNascimento,compEscolaridade,status,observacao)"
@@ -201,8 +72,125 @@ public class AlunoBD extends PessoaBD {
 
         }
 
-    }  
-    
+    }
+
+    // Cadastro de alunos , endereço, contato, deempenho e escolaridade 
+    public void cadastro(Aluno aluno, Endereco endereco, Contato contato, Desempenho desempenho) {
+        int key = 0;
+        try {
+            key = super.cadastro(aluno, endereco, contato);
+
+            conectarBanco();
+            stm = con.createStatement();
+
+            cadastroDesempenho(key, desempenho);
+
+            String sql = "insert into aluno (codAluno,matricula,certidaoNascimento,compEscolaridade,status,observacao)"
+                    + "value(" + key + ",'" + aluno.getMatricula() + "','" + aluno.getCertidaoNascimento() + "',"
+                    + "'" + aluno.getComprovanteEscolarida() + "','" + aluno.getStatus() + "','" + aluno.getObservacao() + "');";
+
+            JOptionPane.showMessageDialog(null, "Aluno: " + aluno.getNome() + "\n \t Cadastrado com sucesso");
+
+            stm.executeUpdate(sql);
+
+            System.out.println(key);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        } finally {
+            desconectarBanco();
+
+        }
+
+    }
+
+    public void cadastro(Aluno aluno, Endereco endereco, Contato contato, Escolaridade escolaridade) {
+        int key = 0;
+        try {
+            key = super.cadastro(aluno, endereco, contato);
+
+            conectarBanco();
+            stm = con.createStatement();
+
+            cadastroEscolaridade(key, escolaridade);
+
+            String sql = "insert into aluno (codAluno,matricula,certidaoNascimento,compEscolaridade,status,observacao)"
+                    + "value(" + key + ",'" + aluno.getMatricula() + "','" + aluno.getCertidaoNascimento() + "',"
+                    + "'" + aluno.getComprovanteEscolarida() + "','" + aluno.getStatus() + "','" + aluno.getObservacao() + "');";
+
+            JOptionPane.showMessageDialog(null, "Aluno: " + aluno.getNome() + "\n \t Cadastrado com sucesso");
+
+            stm.executeUpdate(sql);
+
+            System.out.println(key);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        } finally {
+            desconectarBanco();
+
+        }
+
+    }
+
+    public void cadastro(Aluno aluno, Endereco endereco, ArrayList<Desempenho> desempenho, Contato contato) {
+        int key = 0;
+        try {
+            key = super.cadastro(aluno, endereco, contato);
+
+            conectarBanco();
+            stm = con.createStatement();
+
+            cadastroDesempenho(key, desempenho);
+
+            String sql = "insert into aluno (codAluno,matricula,certidaoNascimento,compEscolaridade,status,observacao)"
+                    + "value(" + key + ",'" + aluno.getMatricula() + "','" + aluno.getCertidaoNascimento() + "',"
+                    + "'" + aluno.getComprovanteEscolarida() + "','" + aluno.getStatus() + "','" + aluno.getObservacao() + "');";
+
+            JOptionPane.showMessageDialog(null, "Aluno: " + aluno.getNome() + "\n \t Cadastrado com sucesso");
+
+            stm.executeUpdate(sql);
+
+            System.out.println(key);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        } finally {
+            desconectarBanco();
+
+        }
+
+    }
+
+    public void cadastro(Aluno aluno, Endereco endereco, Contato contato, ArrayList<Escolaridade> escolaridade) {
+        int key = 0;
+        try {
+            key = super.cadastro(aluno, endereco, contato);
+
+            conectarBanco();
+            stm = con.createStatement();
+
+            cadastroEscolaridade(key, escolaridade);
+
+            String sql = "insert into aluno (codAluno,matricula,certidaoNascimento,compEscolaridade,status,observacao)"
+                    + "value(" + key + ",'" + aluno.getMatricula() + "','" + aluno.getCertidaoNascimento() + "',"
+                    + "'" + aluno.getComprovanteEscolarida() + "','" + aluno.getStatus() + "','" + aluno.getObservacao() + "');";
+
+            JOptionPane.showMessageDialog(null, "Aluno: " + aluno.getNome() + "\n \t Cadastrado com sucesso");
+
+            stm.executeUpdate(sql);
+
+            System.out.println(key);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        } finally {
+            desconectarBanco();
+
+        }
+
+    }
+
     public void cadastro(Aluno aluno, Endereco endereco, Contato contato) {
         int key = 0;
         try {
@@ -312,8 +300,6 @@ public class AlunoBD extends PessoaBD {
 
     }
 
-
-    
 // Desempenho
     public void cadastroDesempenho(Aluno aluno, Desempenho despenho) {
         try {
@@ -387,7 +373,6 @@ public class AlunoBD extends PessoaBD {
 
     }
 
-    
 // Escolaridade
     public void cadastroEscolaridade(Aluno aluno, Escolaridade escolaridade) {
         try {
@@ -395,17 +380,13 @@ public class AlunoBD extends PessoaBD {
             stm = con.createStatement();
             String sql = "insert into escolaridade (codAluno,serie,nomeEscola,"
                     + "municipio,dependenciaAdministrativa,anoLetivo,eja)"
-                    + " values(" + aluno.getCodPessoa() + ",'" + escolaridade.getSerie() + "',"+escolaridade.getNomeEscola()+"',"
-                    + "'"+escolaridade.getMunicipioEscola()+"','"+escolaridade.getDependenciasAdministrativa()+"','"+escolaridade.getAnoLetivo()+"',"
-                    + "'"+escolaridade.getEja()+"');";
+                    + " values(" + aluno.getCodPessoa() + ",'" + escolaridade.getSerie() + "'," + escolaridade.getNomeEscola() + "',"
+                    + "'" + escolaridade.getMunicipioEscola() + "','" + escolaridade.getDependenciasAdministrativa() + "','" + escolaridade.getAnoLetivo() + "',"
+                    + "'" + escolaridade.getEja() + "');";
 
-        }
-        catch (Exception e) 
-        {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        finally
-        {
+        } finally {
             desconectarBanco();
         }
     }
@@ -416,82 +397,57 @@ public class AlunoBD extends PessoaBD {
             stm = con.createStatement();
             String sql = "insert into escolaridade (codAluno,serie,nomeEscola,"
                     + "municipio,dependenciaAdministrativa,anoLetivo,eja)"
-                    + " values(" + aluno+ ",'" + escolaridade.getSerie() + "',"+escolaridade.getNomeEscola()+"',"
-                    + "'"+escolaridade.getMunicipioEscola()+"','"+escolaridade.getDependenciasAdministrativa()+"','"+escolaridade.getAnoLetivo()+"',"
-                    + "'"+escolaridade.getEja()+"');";
+                    + " values(" + aluno + ",'" + escolaridade.getSerie() + "'," + escolaridade.getNomeEscola() + "',"
+                    + "'" + escolaridade.getMunicipioEscola() + "','" + escolaridade.getDependenciasAdministrativa() + "','" + escolaridade.getAnoLetivo() + "',"
+                    + "'" + escolaridade.getEja() + "');";
 
-        }
-        catch (Exception e) 
-        {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        finally
-        {
+        } finally {
             desconectarBanco();
         }
     }
-    
+
     public void cadastroEscolaridade(Aluno aluno, ArrayList<Escolaridade> esco) {
         try {
             conectarBanco();
             stm = con.createStatement();
-            for(Escolaridade escolaridade:esco)
-            {
-            String sql = "insert into escolaridade (codAluno,serie,nomeEscola,"
-                    + "municipio,dependenciaAdministrativa,anoLetivo,eja)"
-                    + " values(" + aluno.getCodPessoa() + ",'" + escolaridade.getSerie() + "',"+escolaridade.getNomeEscola()+"',"
-                    + "'"+escolaridade.getMunicipioEscola()+"','"+escolaridade.getDependenciasAdministrativa()+"','"+escolaridade.getAnoLetivo()+"',"
-                    + "'"+escolaridade.getEja()+"');";
-            stm.executeUpdate(sql);            
+            for (Escolaridade escolaridade : esco) {
+                String sql = "insert into escolaridade (codAluno,serie,nomeEscola,"
+                        + "municipio,dependenciaAdministrativa,anoLetivo,eja)"
+                        + " values(" + aluno.getCodPessoa() + ",'" + escolaridade.getSerie() + "'," + escolaridade.getNomeEscola() + "',"
+                        + "'" + escolaridade.getMunicipioEscola() + "','" + escolaridade.getDependenciasAdministrativa() + "','" + escolaridade.getAnoLetivo() + "',"
+                        + "'" + escolaridade.getEja() + "');";
+                stm.executeUpdate(sql);
             }
 
-        }
-        catch (Exception e) 
-        {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        finally
-        {
+        } finally {
             desconectarBanco();
         }
     }
-    
-     public void cadastroEscolaridade(int aluno, ArrayList<Escolaridade> esco) {
+
+    public void cadastroEscolaridade(int aluno, ArrayList<Escolaridade> esco) {
         try {
             conectarBanco();
             stm = con.createStatement();
-            for(Escolaridade escolaridade:esco)
-            {
-            String sql = "insert into escolaridade (codAluno,serie,nomeEscola,"
-                    + "municipio,dependenciaAdministrativa,anoLetivo,eja)"
-                    + " values(" + aluno + ",'" + escolaridade.getSerie() + "',"+escolaridade.getNomeEscola()+"',"
-                    + "'"+escolaridade.getMunicipioEscola()+"','"+escolaridade.getDependenciasAdministrativa()+"','"+escolaridade.getAnoLetivo()+"',"
-                    + "'"+escolaridade.getEja()+"');";
-            stm.executeUpdate(sql);            
+            for (Escolaridade escolaridade : esco) {
+                String sql = "insert into escolaridade (codAluno,serie,nomeEscola,"
+                        + "municipio,dependenciaAdministrativa,anoLetivo,eja)"
+                        + " values(" + aluno + ",'" + escolaridade.getSerie() + "'," + escolaridade.getNomeEscola() + "',"
+                        + "'" + escolaridade.getMunicipioEscola() + "','" + escolaridade.getDependenciasAdministrativa() + "','" + escolaridade.getAnoLetivo() + "',"
+                        + "'" + escolaridade.getEja() + "');";
+                stm.executeUpdate(sql);
             }
 
-        }
-        catch (Exception e) 
-        {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        finally
-        {
+        } finally {
             desconectarBanco();
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 // pesquisas 
     // desempenho Aluno 
     public ArrayList<Desempenho> listaDesempenhoAluno(Aluno aluno) {
@@ -559,4 +515,50 @@ public class AlunoBD extends PessoaBD {
     }
 
     // Atualizar dados  do Aluno 
+    // Listar Aluno
+    public ArrayList<Aluno> listarAluno() {
+
+        ArrayList<Aluno> listaPessoa = new ArrayList();
+
+        try {
+            Aluno novoPessoa;
+            conectarBanco();
+            String sql = "select * from pessoa,aluno;";
+            stm = con.createStatement();
+            ResultSet listasPessoaCadastradas = stm.executeQuery(sql);
+            while (listasPessoaCadastradas.next()) {
+                novoPessoa = new Aluno();
+
+                novoPessoa.setCodPessoa(listasPessoaCadastradas.getInt("codPessoa"));
+                novoPessoa.setCpf(listasPessoaCadastradas.getString("cpf"));
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(listasPessoaCadastradas.getDate("dataNascimento"));
+                novoPessoa.setDataNacimento(cal);
+                novoPessoa.setFoto((Blob) listasPessoaCadastradas.getBlob("foto"));
+                novoPessoa.setNaturalidade(listasPessoaCadastradas.getString("naturalidade"));
+                novoPessoa.setNome(listasPessoaCadastradas.getString("nome"));
+                novoPessoa.setNomeMae(listasPessoaCadastradas.getString("nomeMae"));
+                novoPessoa.setSenha(listasPessoaCadastradas.getString("senha"));
+                novoPessoa.setNomePai(listasPessoaCadastradas.getString("nomePai"));
+                novoPessoa.setRG(listasPessoaCadastradas.getString("rg"));
+                novoPessoa.setUf(listasPessoaCadastradas.getString("uf"));
+                novoPessoa.setMatricula(listasPessoaCadastradas.getString("matricula"));
+                novoPessoa.setCertidaoNascimento(listasPessoaCadastradas.getString("certidaoNascimento"));
+                novoPessoa.setComprovanteEscolarida(listasPessoaCadastradas.getString("compEscolaridade"));
+                novoPessoa.setStatus(listasPessoaCadastradas.getString("status"));
+                novoPessoa.setObservacao(listasPessoaCadastradas.getString(" observacao"));
+
+                listaPessoa.add(novoPessoa);
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        } finally {
+            desconectarBanco();
+
+            //    novoPessoa.setEnderecos(listarEnderecoPessoa(novoPessoa));
+            return listaPessoa;
+        }
+    }
 }

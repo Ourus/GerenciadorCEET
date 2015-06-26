@@ -23,6 +23,7 @@ create table if not exists pessoa
     cpf char (14) not null,
     rg varchar (15),
     orgaoEmissor varchar (18),
+    senha varchar(100),
     dataExpedicao date,
     naturalidade varchar (20),
     uf char (2),
@@ -71,7 +72,6 @@ create table if not exists funcionarios
     salario float,
     cargaHoraria float,
     codDepartamento int unsigned,
-    senha varchar(100),
     primary key (codFuncionario),
     foreign key (codFuncionario) references pessoa (codPessoa) on delete cascade,
     foreign key (codDepartamento) references departamento(codDepartamento)

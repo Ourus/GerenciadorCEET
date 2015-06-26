@@ -384,13 +384,6 @@ public class DisiplinaBD extends CursoBD {
         }
     }
 
-    
-    
-    
-    
-    
-    
-    
     private int cadastroDisciplinaKey(Curso curso, Disciplina disciplina) {
         int key = 0;
         int codCurso = cadastroCurosoKey(curso);

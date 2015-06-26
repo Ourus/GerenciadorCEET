@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.swing.JOptionPane;
+import modelos.Aluno;
 import modelos.Funcionario;
 
 public class Senha 
@@ -27,7 +28,7 @@ public class Senha
         return sn;
     }
     
-    public boolean validarSenha (Funcionario senhaFuncionario, String senha)
+    public boolean validarSenhaFuncionario (Funcionario senhaFuncionario, String senha)
     {
         if(senhaFuncionario.getSenha().equals(mdSenhaGerador(senha)))
         {
@@ -40,5 +41,16 @@ public class Senha
         
         
     }
-    
+     public boolean validarSenhaFuncionario (Aluno senhaFuncionario, String senha)
+    {
+        if(senhaFuncionario.getSenha().equals(mdSenhaGerador(senha)))
+        {
+            return true;
+        }
+        else
+        {
+           return false; 
+        }
+           
+    }
 }

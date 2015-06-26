@@ -336,12 +336,28 @@ public class PessoaBD extends Conexao {
 
     public Pessoa localizarPessoa(Pessoa pessoa) {
         Pessoa pessoaCadastrada = new Pessoa();
+        ArrayList<Pessoa> Pessoa = new ArrayList();
         try {
             conectarBanco();
             stm = con.createStatement();
             String sql = "select * from pessoa where codPessoa=" + pessoa.getCodPessoa() + ";";
             ResultSet tabelaResultante = stm.executeQuery(sql);
-            pessoaCadastrada.setCodPessoa(tabelaResultante.getInt("codPessoa"));
+             
+
+                pessoaCadastrada.setCodPessoa(tabelaResultante.getInt("codPessoa"));
+                pessoaCadastrada.setCpf(tabelaResultante.getString("cpf"));
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(tabelaResultante.getDate("dataNascimento"));
+                pessoaCadastrada.setDataNacimento(cal);
+                pessoaCadastrada.setFoto((Blob) tabelaResultante.getBlob("foto"));
+                pessoaCadastrada.setNaturalidade(tabelaResultante.getString("naturalidade"));
+                pessoaCadastrada.setNome(tabelaResultante.getString("nome"));
+                pessoaCadastrada.setNomeMae(tabelaResultante.getString("nomeMae"));
+                pessoaCadastrada.setNomePai(tabelaResultante.getString("nomePai"));
+                pessoaCadastrada.setRG(tabelaResultante.getString("rg"));
+                pessoaCadastrada.setUf(tabelaResultante.getString("uf"));
+
+                Pessoa.add(pessoaCadastrada);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());

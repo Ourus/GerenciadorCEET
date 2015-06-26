@@ -10,6 +10,7 @@ import bandoDados.PessoaBD;
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import modelos.Pessoa;
 import modelos_tabela.ModeloTabelaAluno;
 
 /**
@@ -141,9 +142,10 @@ public class TelaProcura extends javax.swing.JDialog {
     private void btVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVisualizarActionPerformed
         if(tbProcura.getSelectedRow() != -1)
         {
-            tb_pessoa.localizarPessoa(modelo.retornarListaPessoas().get(tbProcura.getSelectedRow()));
-            this.setVisible(false);
-            TelaInformacoes telaT = new TelaInformacoes();
+            Pessoa pessoa = new Pessoa();
+            pessoa = modelo.retornarListaPessoas().get(tbProcura.getSelectedRow());
+            this.dispose();
+            TelaInformacoes telaT = new TelaInformacoes(pessoa);
             telaT.setVisible(true);
         }
     }//GEN-LAST:event_btVisualizarActionPerformed

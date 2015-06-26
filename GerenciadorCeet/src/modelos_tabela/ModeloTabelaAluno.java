@@ -26,7 +26,7 @@ public class ModeloTabelaAluno extends javax.swing.table.AbstractTableModel
 
     @Override
     public int getColumnCount() {
-        return 4;
+        return 5;
     }
 
     @Override
@@ -39,6 +39,7 @@ public class ModeloTabelaAluno extends javax.swing.table.AbstractTableModel
             case 1: return pessoa.getNome();
             case 2: return pessoa.getCpf();
             case 3: return pessoa.getRG();
+            case 4: return pessoa.getCorRaca();
             default: return null;
         }
     }
@@ -52,6 +53,7 @@ public class ModeloTabelaAluno extends javax.swing.table.AbstractTableModel
             case 1: return "Nome";
             case 2: return "CPF";
             case 3: return "RG";
+            case 4: return "Cor";
             default: return null;
         }
     }

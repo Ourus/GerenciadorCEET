@@ -571,7 +571,7 @@ public ArrayList<Aluno> localizarAluno(String nomeAluno)
         try {
             Aluno novoPessoa;
             conectarBanco();
-            String sql = "select * from pessoa p ,aluno a where p.codPessoa = a.codAluno and p.nome='"+nomeAluno+"';";
+            String sql = "select * from pessoa p ,aluno a where p.codPessoa = a.codAluno and p.nome like '%"+nomeAluno+"%';";
             stm = con.createStatement();
             ResultSet listasPessoaCadastradas = stm.executeQuery(sql);
             while (listasPessoaCadastradas.next()) {

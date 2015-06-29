@@ -123,8 +123,7 @@ public class TelaUsuarios extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-       TelaPrincipal TelaP = new TelaPrincipal();
-       TelaP.setVisible(true);
+      
        
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 

@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class Home extends javax.swing.JFrame {
     ArrayList contas = new ArrayList();
+    public int nivel;
     /**
      * Creates new form Home
      */
@@ -30,6 +31,7 @@ public class Home extends javax.swing.JFrame {
        for (Login temp: teste.contasCadastradas())
        {    
            contas.add(temp.getLogin()+" "+temp.getSenha());
+           nivel = temp.getNivel();
        }
     }
 

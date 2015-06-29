@@ -6,14 +6,19 @@
 
 package interfaces;
 
+import bandoDados.CursoBD;
 import java.awt.Color;
+import modelos_tabela.ModeloTabelaCurso;
 
 /**
  *
  * @author alunom
  */
 public class TelaBuscarCursos extends javax.swing.JDialog {
-
+    
+        CursoBD cursobd = new CursoBD();
+        ModeloTabelaCurso modelo = new ModeloTabelaCurso();
+    
     /**
      * Creates new form TelaCursos
      */
@@ -22,7 +27,9 @@ public class TelaBuscarCursos extends javax.swing.JDialog {
         initComponents();
         this.getContentPane().setBackground(Color.white);
         this.setLocationRelativeTo(null); // deixa no centro da tela
-        
+        modelo.inserirListaCurso(cursobd.listarCurso());
+        tbCursos.setModel(modelo);
+        tbCursos.updateUI();
         cbxTelaCursos.removeAllItems();
         cbxTurno.removeAllItems();;
         cbxmod.removeAllItems();
@@ -72,7 +79,7 @@ public class TelaBuscarCursos extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         cbxTurno = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbCursos = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox();
         cbTodos = new javax.swing.JCheckBox();
@@ -106,7 +113,7 @@ public class TelaBuscarCursos extends javax.swing.JDialog {
 
         cbxTurno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbCursos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -116,7 +123,7 @@ public class TelaBuscarCursos extends javax.swing.JDialog {
                 {null, null, null, null}
             },
             new String [] {
-                "Curso", "Disciplina", "Professor", "Carga Horaria"
+                "Curso", "ID MEC", "Turno", "Modulos"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -127,7 +134,7 @@ public class TelaBuscarCursos extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbCursos);
 
         jLabel5.setText("Turma:");
 
@@ -274,6 +281,6 @@ public class TelaBuscarCursos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbCursos;
     // End of variables declaration//GEN-END:variables
 }

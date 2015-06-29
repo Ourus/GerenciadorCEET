@@ -25,6 +25,8 @@ public class Pessoa
     private String senha;
     private String orgaoEmissor;
     private Calendar dataExpedicao;
+    private String compFoto;
+    private String compResidencia;
     private ArrayList <Endereco> enderecos = new ArrayList ();
     private ArrayList <Contato> contatos = new ArrayList();
 
@@ -190,6 +192,34 @@ public class Pessoa
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    /**
+     * @return the compFoto
+     */
+    public String getCompFoto() {
+        return compFoto;
+    }
+
+    /**
+     * @param compFoto the compFoto to set
+     */
+    public void setCompFoto(String compFoto) {
+        this.compFoto = compFoto;
+    }
+
+    /**
+     * @return the compResidencia
+     */
+    public String getCompResidencia() {
+        return compResidencia;
+    }
+
+    /**
+     * @param compResidencia the compResidencia to set
+     */
+    public void setCompResidencia(String compResidencia) {
+        this.compResidencia = compResidencia;
     }
   
     

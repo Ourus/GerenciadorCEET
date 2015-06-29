@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
@@ -48,7 +49,9 @@ public class PessoaBD extends Conexao {
         }
     }
 
-    public int cadastro(Pessoa pessoa, ArrayList<Endereco> endereco, Contato contato) {
+
+
+    public int cadastro(Pessoa pessoa, ArrayList <Endereco> endereco, Contato contato) {
         int i = 0;
         try {
             i = cadastroPessoaKey(pessoa);
@@ -64,7 +67,11 @@ public class PessoaBD extends Conexao {
         }
     }
 
-    public int cadastro(Pessoa pessoa, ArrayList<Endereco> endereco, ArrayList<Contato> contato) {
+
+
+    
+    public int cadastro(Pessoa pessoa, ArrayList <Endereco> endereco, ArrayList <Contato> contato) {
+
         int i = 0;
         try {
             i = cadastroPessoaKey(pessoa);
@@ -81,6 +88,8 @@ public class PessoaBD extends Conexao {
     }
 
 // Excluir Pessoa
+
+    
     public void excluirPessoa(Pessoa pessoa) {
         try {
             conectarBanco();
@@ -198,27 +207,30 @@ public class PessoaBD extends Conexao {
 
     private int cadastroPessoaKey(Pessoa pessoa) {
         int key = 0;
+         DecimalFormat formato = new DecimalFormat("00");
 
         try {
             conectarBanco();
             String sql = "insert into pessoa (nome,rg,dataExpedicao,orgaoEmissor,cpf, naturalidade,dataNascimento,uf,"
-                    + "nomePai,nomeMae,foto,sexo,corRaca) values(?,?,?,?,?,?,?,?,?,?,?,?,?);";
+                    + "nomePai,nomeMae,foto,sexo,corRaca,compResidencia,compFoto) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
             PreparedStatement stm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stm.setString(1, pessoa.getNome());
             stm.setString(2, pessoa.getRG());
-            stm.setString(3, pessoa.getDataExpedicao().get(Calendar.YEAR) + "-" + pessoa.getDataExpedicao().get(Calendar.MONTH) + "-" + pessoa.getDataExpedicao().get(Calendar.DAY_OF_MONTH));
+            stm.setString(3, pessoa.getDataExpedicao().get(Calendar.YEAR)+"-"+ formato.format(pessoa.getDataExpedicao().get(Calendar.MONTH)/4)+ "-"+ formato.format(pessoa.getDataExpedicao().get(Calendar.DAY_OF_MONTH)));
             stm.setString(4, pessoa.getOrgaoEmissor());
             stm.setString(5, pessoa.getCpf());
             stm.setString(6, pessoa.getNaturalidade());
             // new Date(pessoa.getDataNacimento().get(Calendar.DAY_OF_MONTH), pessoa.getDataNacimento().get(Calendar.MONTH), pessoa.getDataNacimento().get(Calendar.YEAR))
-            stm.setString(7, pessoa.getDataNacimento().get(Calendar.YEAR) + "-" + pessoa.getDataNacimento().get(Calendar.MONTH) + "-" + pessoa.getDataNacimento().get(Calendar.DAY_OF_MONTH));
+            stm.setString(7, pessoa.getDataNacimento().get(Calendar.YEAR) + "-" + formato.format(pessoa.getDataNacimento().get(Calendar.MONTH)/4) + "-" + formato.format(pessoa.getDataNacimento().get(Calendar.DAY_OF_MONTH)));
             stm.setString(8, pessoa.getUf());
             stm.setString(9, pessoa.getNomePai());
             stm.setString(10, pessoa.getNomeMae());
             stm.setBlob(11, pessoa.getFoto());
             stm.setString(12, pessoa.getSexo());
             stm.setString(13, pessoa.getCorRaca());
-
+            stm.setString(14, pessoa.getCompResidencia());
+            stm.setString(15, pessoa.getCompFoto());
+            
             stm.executeUpdate();
 
             ResultSet codPessoa = stm.getGeneratedKeys();
@@ -331,12 +343,28 @@ public class PessoaBD extends Conexao {
 
     public Pessoa localizarPessoa(Pessoa pessoa) {
         Pessoa pessoaCadastrada = new Pessoa();
+        ArrayList<Pessoa> Pessoa = new ArrayList();
         try {
             conectarBanco();
             stm = con.createStatement();
-            String sql = "select * from aluno where codPessoa=" + pessoa.getCodPessoa() + ";";
+            String sql = "select * from pessoa where codPessoa=" + pessoa.getCodPessoa() + ";";
             ResultSet tabelaResultante = stm.executeQuery(sql);
-            pessoaCadastrada.setCodPessoa(tabelaResultante.getInt("codPessoa"));
+             
+
+                pessoaCadastrada.setCodPessoa(tabelaResultante.getInt("codPessoa"));
+                pessoaCadastrada.setCpf(tabelaResultante.getString("cpf"));
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(tabelaResultante.getDate("dataNascimento"));
+                pessoaCadastrada.setDataNacimento(cal);
+                pessoaCadastrada.setFoto((Blob) tabelaResultante.getBlob("foto"));
+                pessoaCadastrada.setNaturalidade(tabelaResultante.getString("naturalidade"));
+                pessoaCadastrada.setNome(tabelaResultante.getString("nome"));
+                pessoaCadastrada.setNomeMae(tabelaResultante.getString("nomeMae"));
+                pessoaCadastrada.setNomePai(tabelaResultante.getString("nomePai"));
+                pessoaCadastrada.setRG(tabelaResultante.getString("rg"));
+                pessoaCadastrada.setUf(tabelaResultante.getString("uf"));
+
+                Pessoa.add(pessoaCadastrada);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());

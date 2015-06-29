@@ -209,7 +209,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu7.add(jMenuItem6);
 
-        jMenuItem8.setText("Novo");
+        jMenuItem8.setText("Gerenciar");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem8ActionPerformed(evt);

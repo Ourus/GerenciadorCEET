@@ -14,6 +14,7 @@ public class Conexao {
     protected Connection con;
     protected Statement stm;
 
+
     protected void conectarBanco() {
         try {
             // Class.forName(driver);

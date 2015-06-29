@@ -523,7 +523,7 @@ public class AlunoBD extends PessoaBD {
         try {
             Aluno novoPessoa;
             conectarBanco();
-            String sql = "select * from pessoa,aluno;";
+            String sql = "select * from pessoa p ,aluno a where p.codPessoa = a.codAluno;";
             stm = con.createStatement();
             ResultSet listasPessoaCadastradas = stm.executeQuery(sql);
             while (listasPessoaCadastradas.next()) {
@@ -546,7 +546,10 @@ public class AlunoBD extends PessoaBD {
                 novoPessoa.setCertidaoNascimento(listasPessoaCadastradas.getString("certidaoNascimento"));
                 novoPessoa.setComprovanteEscolarida(listasPessoaCadastradas.getString("compEscolaridade"));
                 novoPessoa.setStatus(listasPessoaCadastradas.getString("status"));
-                novoPessoa.setObservacao(listasPessoaCadastradas.getString(" observacao"));
+                novoPessoa.setObservacao(listasPessoaCadastradas.getString("observacao"));
+                novoPessoa.setCorRaca(listasPessoaCadastradas.getString("corRaca"));
+                novoPessoa.setSexo(listasPessoaCadastradas.getString("sexo"));
+                novoPessoa.setCompFoto(listasPessoaCadastradas.getString("compFoto"));
 
                 listaPessoa.add(novoPessoa);
 

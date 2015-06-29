@@ -27,6 +27,7 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
     public TelaNovoUsuario(java.awt.Frame parent, boolean modal, int tipoAbertura) {
         super(parent, modal);
         initComponents();
+         this.getContentPane().setBackground(Color.white);
         
         if(tipoAbertura == 0)
         {
@@ -41,7 +42,7 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
         modelo.inserirListaLogins(tb_login.retornarLoginsCadastrados()); 
         tbLoginsCadastrados.setModel(modelo); 
         
-        this.getContentPane().setBackground(new Color(59,135,199));
+       
         
         this.setTitle("Tela Cadastro de Usuários");
         this.setLocationRelativeTo(null);
@@ -91,7 +92,7 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jLabel2.setText("Login:");
 
@@ -165,6 +166,9 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
 
         tpnAbas.addTab("Cadastro de Logins", jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
         tbLoginsCadastrados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -181,6 +185,11 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
         jLabel1.setText("Buscar Logins:");
 
         jButton1.setText("Editar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         btExcluir.setText("Excluir");
         btExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -216,7 +225,7 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
                                 .addGap(18, 18, 18)
                                 .addComponent(jTextField1))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 3, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -261,15 +270,19 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
 
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
 
-        if(tfLogin.getText().isEmpty() || pfSenha.getText().isEmpty())
+        
+        if(tfLogin.getText().isEmpty() && pfSenha.getText().isEmpty() && pfSenha2.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(rootPane, "Preencha Todos Os Campos");
+            JOptionPane.showMessageDialog(rootPane, "Preencha Todos Os Campos!");
         }else
             {
-                if(pfSenha.getText() != pfSenha2.getText())
+                if(!pfSenha.getText().equals(pfSenha2.getText()))
                 {
-                    JOptionPane.showMessageDialog(rootPane, "Senhas Não Correspondem", "Erro", 1);
-                }else{
+                    JOptionPane.showMessageDialog(rootPane, "Senhas Não compativeis!");
+                    pfSenha.setText("");
+                    pfSenha2.setText("");
+                }
+                else{
                 // Preenchendo o objeto Login antes de enviá-lo ao banco
                 Login login = new Login();
                 
@@ -282,8 +295,12 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
                 
                 // Recebendo novos valores do banco...
                  modelo.inserirListaLogins(tb_login.retornarLoginsCadastrados()); 
-                 tbLoginsCadastrados.updateUI(); // F5
-            }
+                 tbLoginsCadastrados.updateUI();
+                 // F5
+                  pfSenha.setText("");
+                  pfSenha2.setText("");
+                  tfLogin.setText("");
+                }
             }
     }//GEN-LAST:event_btSalvarActionPerformed
 
@@ -304,6 +321,11 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
             this.dispose();
         }
     }//GEN-LAST:event_btSelecionarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        TelaAtualizarUsuario tela = new TelaAtualizarUsuario(null, true);
+        tela.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public Login retornaLoginSelecionado()
     {

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package interfaces;
 
 import java.awt.Color;
@@ -21,29 +20,22 @@ public class TelaBuscarAluno extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
-        this.getContentPane().setBackground(new Color(59,135,199));
-        
+        this.getContentPane().setBackground(Color.white);
+
         cbxOpcoesBusca.removeAllItems();
         cbxTipoDeclaracao.removeAllItems();
         cbxTipoDeclaracao.setEnabled(false);
-        
+
         habilitarPaineis(1);
-        
-        
-                
-        
+
         cbxOpcoesBusca.addItem("Documentos faltando");
         cbxOpcoesBusca.addItem("Rematricula");
-        cbxOpcoesBusca.addItem("Informações");
         cbxOpcoesBusca.addItem("Declaração");
-        
-       
-        
+
         cbxTipoDeclaracao.addItem("Escolar");
         cbxTipoDeclaracao.addItem("Estágio");
         cbxTipoDeclaracao.addItem("Emprego");
-        
-        
+
     }
 
     /**
@@ -60,6 +52,12 @@ public class TelaBuscarAluno extends javax.swing.JDialog {
         cbxOpcoesBusca = new javax.swing.JComboBox();
         cbxTipoDeclaracao = new javax.swing.JComboBox();
         jLayeredPane1 = new javax.swing.JLayeredPane();
+        pnDocumento = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        cbTodos = new javax.swing.JCheckBox();
+        cbCurso = new javax.swing.JCheckBox();
+        jComboBox1 = new javax.swing.JComboBox();
         pnObservacoes = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -67,20 +65,14 @@ public class TelaBuscarAluno extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+        pnDeclaracao = new javax.swing.JPanel();
         pnEscolar = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        pnTrabalho = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         pnEstagio = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        pnDocumento = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        cbTodos = new javax.swing.JCheckBox();
-        cbCurso = new javax.swing.JCheckBox();
-        jComboBox1 = new javax.swing.JComboBox();
+        pnTrabalho = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         pnBuscarAluno = new javax.swing.JPanel();
-        pnDeclaracao = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -96,8 +88,60 @@ public class TelaBuscarAluno extends javax.swing.JDialog {
 
         cbxTipoDeclaracao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        pnDocumento.setBackground(new java.awt.Color(255, 255, 255));
+        pnDocumento.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Aluno", "Documentos", "Title 3"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        cbTodos.setText("Todos");
+
+        cbCurso.setText("Curso");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout pnDocumentoLayout = new javax.swing.GroupLayout(pnDocumento);
+        pnDocumento.setLayout(pnDocumentoLayout);
+        pnDocumentoLayout.setHorizontalGroup(
+            pnDocumentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnDocumentoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnDocumentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnDocumentoLayout.createSequentialGroup()
+                        .addComponent(cbTodos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbCurso)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 226, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        pnDocumentoLayout.setVerticalGroup(
+            pnDocumentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnDocumentoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnDocumentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbTodos)
+                    .addComponent(cbCurso)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(165, Short.MAX_VALUE))
+        );
+
         pnObservacoes.setBackground(new java.awt.Color(255, 255, 255));
-        pnObservacoes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pnObservacoes.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -178,6 +222,20 @@ public class TelaBuscarAluno extends javax.swing.JDialog {
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
+        pnDeclaracao.setBackground(new java.awt.Color(255, 255, 255));
+        pnDeclaracao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout pnDeclaracaoLayout = new javax.swing.GroupLayout(pnDeclaracao);
+        pnDeclaracao.setLayout(pnDeclaracaoLayout);
+        pnDeclaracaoLayout.setHorizontalGroup(
+            pnDeclaracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 496, Short.MAX_VALUE)
+        );
+        pnDeclaracaoLayout.setVerticalGroup(
+            pnDeclaracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 420, Short.MAX_VALUE)
+        );
+
         pnEscolar.setBackground(new java.awt.Color(255, 255, 255));
         pnEscolar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -198,28 +256,6 @@ public class TelaBuscarAluno extends javax.swing.JDialog {
                 .addGap(31, 31, 31)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(343, Short.MAX_VALUE))
-        );
-
-        pnTrabalho.setBackground(new java.awt.Color(255, 255, 255));
-        pnTrabalho.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabel5.setText("Trabalho");
-
-        javax.swing.GroupLayout pnTrabalhoLayout = new javax.swing.GroupLayout(pnTrabalho);
-        pnTrabalho.setLayout(pnTrabalhoLayout);
-        pnTrabalhoLayout.setHorizontalGroup(
-            pnTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnTrabalhoLayout.createSequentialGroup()
-                .addGap(281, 281, 281)
-                .addComponent(jLabel5)
-                .addContainerGap(349, Short.MAX_VALUE))
-        );
-        pnTrabalhoLayout.setVerticalGroup(
-            pnTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnTrabalhoLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jLabel5)
-                .addContainerGap(359, Short.MAX_VALUE))
         );
 
         pnEstagio.setBackground(new java.awt.Color(255, 255, 255));
@@ -245,56 +281,26 @@ public class TelaBuscarAluno extends javax.swing.JDialog {
                 .addContainerGap(321, Short.MAX_VALUE))
         );
 
-        pnDocumento.setBackground(new java.awt.Color(255, 255, 255));
-        pnDocumento.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        pnTrabalho.setBackground(new java.awt.Color(255, 255, 255));
+        pnTrabalho.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Aluno", "Documentos", "Title 3"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        jLabel5.setText("Trabalho");
 
-        cbTodos.setText("Todos");
-
-        cbCurso.setText("Curso");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        javax.swing.GroupLayout pnDocumentoLayout = new javax.swing.GroupLayout(pnDocumento);
-        pnDocumento.setLayout(pnDocumentoLayout);
-        pnDocumentoLayout.setHorizontalGroup(
-            pnDocumentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnDocumentoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnDocumentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnDocumentoLayout.createSequentialGroup()
-                        .addComponent(cbTodos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbCurso)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 226, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE))
-                .addContainerGap())
+        javax.swing.GroupLayout pnTrabalhoLayout = new javax.swing.GroupLayout(pnTrabalho);
+        pnTrabalho.setLayout(pnTrabalhoLayout);
+        pnTrabalhoLayout.setHorizontalGroup(
+            pnTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnTrabalhoLayout.createSequentialGroup()
+                .addGap(281, 281, 281)
+                .addComponent(jLabel5)
+                .addContainerGap(349, Short.MAX_VALUE))
         );
-        pnDocumentoLayout.setVerticalGroup(
-            pnDocumentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnDocumentoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnDocumentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbTodos)
-                    .addComponent(cbCurso)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(165, Short.MAX_VALUE))
+        pnTrabalhoLayout.setVerticalGroup(
+            pnTrabalhoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnTrabalhoLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(jLabel5)
+                .addContainerGap(359, Short.MAX_VALUE))
         );
 
         pnBuscarAluno.setBackground(new java.awt.Color(255, 255, 255));
@@ -308,20 +314,6 @@ public class TelaBuscarAluno extends javax.swing.JDialog {
         );
         pnBuscarAlunoLayout.setVerticalGroup(
             pnBuscarAlunoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
-        );
-
-        pnDeclaracao.setBackground(new java.awt.Color(255, 255, 255));
-        pnDeclaracao.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout pnDeclaracaoLayout = new javax.swing.GroupLayout(pnDeclaracao);
-        pnDeclaracao.setLayout(pnDeclaracaoLayout);
-        pnDeclaracaoLayout.setHorizontalGroup(
-            pnDeclaracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 496, Short.MAX_VALUE)
-        );
-        pnDeclaracaoLayout.setVerticalGroup(
-            pnDeclaracaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 420, Short.MAX_VALUE)
         );
 
@@ -371,13 +363,13 @@ public class TelaBuscarAluno extends javax.swing.JDialog {
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(pnEstagio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jLayeredPane1.setLayer(pnObservacoes, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(pnEscolar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(pnTrabalho, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(pnEstagio, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(pnDocumento, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(pnBuscarAluno, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(pnObservacoes, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(pnDeclaracao, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(pnEscolar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(pnEstagio, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(pnTrabalho, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(pnBuscarAluno, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -417,80 +409,77 @@ public class TelaBuscarAluno extends javax.swing.JDialog {
 
     private void cbxOpcoesBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxOpcoesBuscaActionPerformed
 
-        if(cbxOpcoesBusca.getSelectedIndex() == 0)
+        if (cbxOpcoesBusca.getSelectedIndex() == 0) 
         {
             habilitarPaineis(1);
         }
-        if(cbxOpcoesBusca.getSelectedIndex() == 1)
+        if (cbxOpcoesBusca.getSelectedIndex() == 1) 
         {
             habilitarPaineis(4);
         }
-        if(cbxOpcoesBusca.getSelectedIndex() == 2)
+        if (cbxOpcoesBusca.getSelectedIndex() == 2) 
         {
             habilitarPaineis(3);
         }
 
-        if(cbxOpcoesBusca.getSelectedIndex()==3)
+        if (cbxOpcoesBusca.getSelectedIndex() == 2) 
         {
             cbxTipoDeclaracao.setEnabled(true);
             habilitarPaineis(2);
-            
-            if(cbxTipoDeclaracao.getSelectedIndex() == 0)
+
+            if (cbxTipoDeclaracao.getSelectedIndex() == 0) 
             {
-                
                 habilitarPaineis(5);
             }
-            if(cbxTipoDeclaracao.getSelectedIndex() == 1)
+            if (cbxTipoDeclaracao.getSelectedIndex() == 1) 
             {
                 habilitarPaineis(6);
             }
-            if(cbxTipoDeclaracao.getSelectedIndex() == 2)
+            if (cbxTipoDeclaracao.getSelectedIndex() == 2) 
             {
-                
                 habilitarPaineis(7);
             }
-        }else
-        {
+        } else {
             cbxTipoDeclaracao.setEnabled(false);
         }
     }//GEN-LAST:event_cbxOpcoesBuscaActionPerformed
 
-    
-     public void habilitarPaineis(int painel)
-    {
+    public void habilitarPaineis(int painel) {
+        pnDocumento.setVisible(false);
         pnBuscarAluno.setVisible(false);
         pnDeclaracao.setVisible(false);
-        pnDocumento.setVisible(false);
+
         pnObservacoes.setVisible(false);
         pnDeclaracao.setVisible(false);
         pnEscolar.setVisible(false);
         pnTrabalho.setVisible(false);
-        
-        
-        switch(painel)
-        {
-            case 1: pnDocumento.setVisible(true);
-                    break;
-            case 2: pnDeclaracao.setVisible(true);
-                    break;
-            case 3: pnBuscarAluno.setVisible(true);
+
+        switch (painel) {
+            case 1: 
+                 pnDocumento.setVisible(true);
                 break;
-            case 4: pnObservacoes.setVisible(true);
+            case 2:
+               pnBuscarAluno.setVisible(true);
                 break;
-            case 5: pnEscolar.setVisible(true);
+            case 3:
+                 pnDeclaracao.setVisible(true);
                 break;
-            case 6: pnEstagio.setVisible(true);
+            case 4:
+               pnObservacoes.setVisible(true);
                 break;
-            case 7: pnTrabalho.setVisible(true);
+            case 5:
+                pnEscolar.setVisible(true);
                 break;
-                
-            
-                 
+            case 6:
+                pnEstagio.setVisible(true);
+                break;
+            case 7:
+                pnTrabalho.setVisible(true);
+                break;
+
         }
     }
-    
-    
-    
+
     /**
      * @param args the command line arguments
      */

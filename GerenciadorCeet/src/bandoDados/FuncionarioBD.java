@@ -11,7 +11,7 @@ import modelos.*;
 
 public class FuncionarioBD extends PessoaBD {
 
-    public int cadastroFuncionario(Funcionario funcionario, Endereco endereco, Contato contato, ArrayList<Escolaridade> escolaridade, ArrayList<Desempenho> desempenho) {
+    public int cadastroFuncionario(Funcionario funcionario, Endereco endereco, Contato contato) {
         int key = 0;
 
         try {

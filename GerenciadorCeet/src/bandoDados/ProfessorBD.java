@@ -6,41 +6,93 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 import modelos.Aluno;
 import modelos.Contato;
 import modelos.Desempenho;
 import modelos.Endereco;
 import modelos.Escolaridade;
+import modelos.FormacaoProfessor;
 import modelos.Professor;
 
 public class ProfessorBD extends FuncionarioBD {
 
-    public int cadastroProfessor(Professor professor, Endereco endereco, Contato contato, ArrayList<Escolaridade> escolaridade, ArrayList<Desempenho> desempenho) {
+    public int cadastroProfessor(Professor professor, Endereco endereco, Contato contato, FormacaoProfessor fp) {
         int key = 0;
         try {
-            key = super.cadastroFuncionario(professor, endereco, contato, escolaridade, desempenho);
+            key = super.cadastroFuncionario(professor, endereco, contato);
             conectarBanco();
             String sql = "insert into professor(codProfessor,codDepartamento)values(?,?);";
             PreparedStatement stm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stm.setInt(1, key);
             stm.setInt(2, professor.getCodDepartamento());
             stm.executeUpdate();
+            cadastrarFormacao(key, fp);
 
-            ResultSet codPessoa = stm.getGeneratedKeys();
-            while (codPessoa.next()) {
-                key = codPessoa.getInt(1);
-            }
-
+        
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
 
         } finally {
+            desconectarBanco();
             return key;
         }
     }
+     
+    public int cadastroProfessor(Professor professor, Endereco endereco, Contato contato, ArrayList<FormacaoProfessor> fp) {
+        int key = 0;
+        try {
+            key = super.cadastroFuncionario(professor, endereco, contato);
+            conectarBanco();
+            String sql = "insert into professor(codProfessor,codDepartamento)values(?,?);";
+            PreparedStatement stm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            stm.setInt(1, key);
+            stm.setInt(2, professor.getCodDepartamento());
+            stm.executeUpdate();
+               for(FormacaoProfessor temp: fp)
+           {
+               cadastrarFormacao(key, temp);
+               
+           }
 
-    public ArrayList<Professor> localizarAluno(String nomeProfessor) {
+
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+
+        } finally {
+            desconectarBanco();
+                return key;
+        }
+    }
+    
+    private void cadastrarFormacao (int i, FormacaoProfessor forma)
+    {
+        try 
+        {
+            conectarBanco();
+            String sql = "insert into formacao values (codProfessor,tipo,curso,instituicao,situacao,anoConclucao, anoInicio)"
+                    + "values(?,?,?,?,?,?,?)";
+            PreparedStatement stm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            stm.setInt(1, i);
+            stm.setString(2, forma.getTipo());
+            stm.setString(3, forma.getCurso());
+            stm.setString(4, forma.getInstituicao());
+            stm.setString(5, forma.getSituacao());
+            stm.setString(6, forma.getAnoConclusao().get(Calendar.YEAR)+"-"+forma.getAnoConclusao().get(Calendar.MONTH)+"-"+forma.getAnoConclusao().get(Calendar.DAY_OF_MONTH));
+            stm.setString(7, forma.getAnoIncio().get(Calendar.YEAR)+"-" + forma.getAnoIncio().get(Calendar.MONTH)+"-"+ forma.getAnoIncio().get(Calendar.DAY_OF_MONTH));
+            stm.executeUpdate();
+            
+        } catch (Exception e) {
+        }finally
+        {
+            desconectarBanco();
+        }
+        
+    }
+   
+    public ArrayList<Professor> localizarProfessor(String nomeProfessor) {
         ArrayList<Professor> listaPessoa = new ArrayList();
 
         try {

@@ -20,10 +20,13 @@ import javax.swing.Timer;
 public class TelaPrincipal extends javax.swing.JFrame {
 
     int numero;
+    
+    
     // CONSTRUTOR
     public TelaPrincipal() 
     {
         initComponents();
+        System.out.println();
         this.setLocationRelativeTo(null);  // Definindo esta janela (TelaPrincipal) como centralizada
         
         this.getContentPane().setBackground(new Color(59,135,199)); // Definindo a cor de fundo desta janela como uma nova cor.
@@ -31,6 +34,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                
         
     }
+
+   
     
    
 
@@ -46,25 +51,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
         miSair = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        imAlunoCadastro = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
         imCursoBuscar = new javax.swing.JMenuItem();
         jMenu10 = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenuItem13 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        imAlunoCadastro = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu11 = new javax.swing.JMenu();
+        jMenuItem13 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
         jMenu9 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
@@ -116,15 +119,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu3.setText("Alunos");
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setText("Atualizar");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem2);
-
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem3.setText("Buscar");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -134,26 +128,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem3);
 
-        imAlunoCadastro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        imAlunoCadastro.setText("Cadastrar");
-        imAlunoCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                imAlunoCadastroActionPerformed(evt);
-            }
-        });
-        jMenu3.add(imAlunoCadastro);
-
         jMenu2.add(jMenu3);
 
         jMenu4.setText("Cursos");
-
-        jMenuItem4.setText("Atualizar");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem4);
 
         imCursoBuscar.setText("Buscar");
         imCursoBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -166,21 +143,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenu4);
 
         jMenu10.setText("Professor");
-
-        jMenuItem10.setText("Atualizar");
-        jMenu10.add(jMenuItem10);
-
-        jMenuItem12.setText("Cadastrar");
-        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem12ActionPerformed(evt);
-            }
-        });
-        jMenu10.add(jMenuItem12);
-
-        jMenuItem13.setText("Remover");
-        jMenu10.add(jMenuItem13);
-
         jMenu2.add(jMenu10);
 
         jMenuBar1.add(jMenu2);
@@ -189,7 +151,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu6.setText("Cursos");
 
-        jMenuItem1.setText("Cadastrar");
+        jMenuItem1.setText("Gerenciar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -201,14 +163,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu7.setText("Usuários");
 
-        jMenuItem6.setText("Atualizar");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu7.add(jMenuItem6);
-
         jMenuItem8.setText("Gerenciar");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,22 +171,55 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu7.add(jMenuItem8);
 
-        jMenuItem7.setText("Remover");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
-            }
-        });
-        jMenu7.add(jMenuItem7);
-
         jMenu5.add(jMenu7);
 
-        jMenu8.setText("Suporte");
+        jMenu8.setText("Alunos");
 
-        jMenuItem9.setText("Supremo");
-        jMenu8.add(jMenuItem9);
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setText("Atualizar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem2);
+
+        imAlunoCadastro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        imAlunoCadastro.setText("Cadastrar");
+        imAlunoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imAlunoCadastroActionPerformed(evt);
+            }
+        });
+        jMenu8.add(imAlunoCadastro);
+
+        jMenuItem4.setText("Buscar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem4);
 
         jMenu5.add(jMenu8);
+
+        jMenu11.setText("Professor");
+
+        jMenuItem13.setText("Gerenciar");
+        jMenu11.add(jMenuItem13);
+
+        jMenuItem12.setText("Cadastrar");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jMenuItem12);
+
+        jMenuItem10.setText("Atualizar");
+        jMenu11.add(jMenuItem10);
+
+        jMenu5.add(jMenu11);
 
         jMenuBar1.add(jMenu5);
 
@@ -292,10 +279,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
       
     }//GEN-LAST:event_miSairActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
     private void imCursoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imCursoBuscarActionPerformed
         TelaBuscarCursos TelaGrad = new TelaBuscarCursos(this,rootPaneCheckingEnabled);
         TelaGrad.setVisible(true);
@@ -326,8 +309,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        TelaProcura telap = new TelaProcura(this, rootPaneCheckingEnabled);
-        telap.setVisible(true);
+        TelaAlunos telaA = new TelaAlunos(this, rootPaneCheckingEnabled);
+        telaA.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
@@ -340,12 +323,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TelaCadastro.setVisible(true);
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-       TelaRemoverUsuario telaR = new TelaRemoverUsuario(this,rootPaneCheckingEnabled);
-       telaR.setVisible(true);
-       
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
-
     private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
         this.dispose();
         Home telaH = new Home();
@@ -353,10 +330,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem14ActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-       TelaAtualizarUsuario telaA = new TelaAtualizarUsuario(this,true);
-       telaA.setVisible(true);
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        TelaProcura telap = new TelaProcura(this, rootPaneCheckingEnabled);
+        telap.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -399,6 +376,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem imCursoBuscar;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -418,10 +396,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel lbPrincipal;
     private javax.swing.JMenuItem miSair;
     // End of variables declaration//GEN-END:variables

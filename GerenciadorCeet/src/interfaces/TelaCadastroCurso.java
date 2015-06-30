@@ -6,20 +6,40 @@
 
 package interfaces;
 
+import bandoDados.CursoBD;
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import modelos.Curso;
+import modelos_tabela.ModeloTabelaCurso;
 
 /**
  *
  * @author alunom
  */
 public class TelaCadastroCurso extends javax.swing.JDialog {
-
+        Curso curso = new Curso();
+        CursoBD cursobd = new CursoBD();
+        ModeloTabelaCurso modelo = new ModeloTabelaCurso();
     /**
      * Creates new form TelaCadastroCurso
      */
     public TelaCadastroCurso(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        modelo.inserirListaCurso(cursobd.listarCurso());
+        tbCursos.setModel(modelo);
+        tbCursos.updateUI();
+        
+        
+        cbModulos.removeAllItems();
+        cbTurno.removeAllItems();
+        cbTurno.addItem("Matutino");
+        cbTurno.addItem("Vespertino");
+        cbTurno.addItem("Noturno");
+        cbModulos.addItem("1");
+        cbModulos.addItem("2");
+        cbModulos.addItem("3");
+        cbModulos.addItem("4");
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.white);
         
@@ -36,21 +56,26 @@ public class TelaCadastroCurso extends javax.swing.JDialog {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jButton3 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tfNomeCurso = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        cbTurno = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        cbModulos = new javax.swing.JComboBox();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbDisciplina = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        tbCursos = new javax.swing.JTable();
+        btCadastrarCurso = new javax.swing.JButton();
+        btExcluir = new javax.swing.JButton();
         btAdicionar = new javax.swing.JButton();
+        tfMec = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         jButton3.setText("jButton3");
+
+        jLabel5.setText("jLabel5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Cursos");
@@ -69,46 +94,58 @@ public class TelaCadastroCurso extends javax.swing.JDialog {
 
         jLabel2.setText("Turno:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbTurno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel3.setText("Qts. Módulos:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbModulos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel4.setText("Disciplinas:");
+        jLabel4.setText("Cursos Cadastrados");
 
-        tbDisciplina.setModel(new javax.swing.table.DefaultTableModel(
+        tbCursos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Disciplina", "Ementa", "Habilidade", "Competencia", "Base Tecnologica"
+                "Nome", "ID MEC", "Turno", "Modulos"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        tbDisciplina.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(tbDisciplina);
+        tbCursos.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tbCursos);
 
-        jButton1.setText("Confirmar Curso");
+        btCadastrarCurso.setText("Cadastrar Curso");
+        btCadastrarCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadastrarCursoActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Cancelar");
+        btExcluir.setText("Excluir");
+        btExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcluirActionPerformed(evt);
+            }
+        });
 
-        btAdicionar.setText("jButton4");
+        btAdicionar.setText("Cancelar");
         btAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAdicionarActionPerformed(evt);
             }
         });
+
+        jLabel6.setText("IDMec:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -122,22 +159,26 @@ public class TelaCadastroCurso extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
-                            .addComponent(tfNomeCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(cbModulos, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(143, 143, 143)
-                                .addComponent(jLabel4))
+                                .addComponent(tfNomeCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tfMec, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(56, 56, 56)
-                                .addComponent(jButton1)
-                                .addGap(56, 56, 56)
-                                .addComponent(jButton2)
-                                .addGap(36, 36, 36)
+                                .addComponent(btCadastrarCurso)
+                                .addGap(30, 30, 30)
+                                .addComponent(btExcluir)
+                                .addGap(43, 43, 43)
                                 .addComponent(btAdicionar)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -148,22 +189,25 @@ public class TelaCadastroCurso extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(3, 3, 3)
-                .addComponent(tfNomeCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tfNomeCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfMec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbModulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
+                    .addComponent(btCadastrarCurso)
+                    .addComponent(btExcluir)
                     .addComponent(btAdicionar))
                 .addContainerGap())
         );
@@ -193,8 +237,42 @@ public class TelaCadastroCurso extends javax.swing.JDialog {
     }//GEN-LAST:event_tfNomeCursoActionPerformed
 
     private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
-       
+        this.dispose();
     }//GEN-LAST:event_btAdicionarActionPerformed
+
+    private void btCadastrarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarCursoActionPerformed
+        if(tfNomeCurso.getText().isEmpty() || tfMec.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos adequadamente", "Erro", 0);
+        }else
+        {
+            curso.setNomeCurso(tfNomeCurso.getText());
+            curso.setNumeroIdMEC(tfMec.getText());
+            curso.setTurno((String) cbTurno.getSelectedItem());
+            curso.setQuantmodulos((String) cbModulos.getSelectedItem());
+            cursobd.cadastroCurosoKey(curso);
+            JOptionPane.showMessageDialog(rootPane, "Cadastro Confirmado", "", 1);
+            modelo.inserirListaCurso(cursobd.listarCurso());
+            tbCursos.updateUI();
+        }
+    }//GEN-LAST:event_btCadastrarCursoActionPerformed
+
+    private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
+        if(tbCursos.getSelectedRow() != -1)
+        {
+            if(JOptionPane.showConfirmDialog(rootPane, "Tem Certeza Que Deseja Excluir?") == 0)
+            {
+                cursobd.excluirCurso(modelo.retornarListaCursos().get(tbCursos.getSelectedRow()));
+                modelo.inserirListaCurso(cursobd.listarCurso());
+                tbCursos.updateUI();
+                JOptionPane.showMessageDialog(rootPane, "Curso excluido com sucesso");
+            }
+            
+        }else
+        {
+            JOptionPane.showMessageDialog(rootPane, "Nenhum Curso selecionado", "Selecione um Curso", 0);
+        }
+    }//GEN-LAST:event_btExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,19 +318,22 @@ public class TelaCadastroCurso extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAdicionar;
+    private javax.swing.JButton btCadastrarCurso;
+    private javax.swing.JButton btExcluir;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox cbModulos;
+    private javax.swing.JComboBox cbTurno;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbDisciplina;
+    private javax.swing.JTable tbCursos;
+    private javax.swing.JTextField tfMec;
     private javax.swing.JTextField tfNomeCurso;
     // End of variables declaration//GEN-END:variables
 }

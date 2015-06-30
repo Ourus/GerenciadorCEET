@@ -8,6 +8,8 @@ public class Curso
     private int codCurso;
     private String nomeCurso;
     private String numeroIdMEC;
+    private String turno;
+    private String quantmodulos;
     private ArrayList <Disciplina> disciplina= new ArrayList();
     // esse atributo deve ser habilitado caso mude o DER !!
 
@@ -45,6 +47,34 @@ public class Curso
     public void setDisciplina (Disciplina des)
     {
         this.disciplina.add(des);
+    }
+
+    /**
+     * @return the turno
+     */
+    public String getTurno() {
+        return turno;
+    }
+
+    /**
+     * @param turno the turno to set
+     */
+    public void setTurno(String turno) {
+        this.turno = turno;
+    }
+
+    /**
+     * @return the quantmodulos
+     */
+    public String getQuantmodulos() {
+        return quantmodulos;
+    }
+
+    /**
+     * @param quantmodulos the quantmodulos to set
+     */
+    public void setQuantmodulos(String quantmodulos) {
+        this.quantmodulos = quantmodulos;
     }
     
 }

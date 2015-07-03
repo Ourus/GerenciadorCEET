@@ -80,8 +80,8 @@ public class ProfessorBD extends FuncionarioBD {
             stm.setString(3, forma.getCurso());
             stm.setString(4, forma.getInstituicao());
             stm.setString(5, forma.getSituacao());
-            stm.setString(6, forma.getAnoConclusao().get(Calendar.YEAR)+"-"+forma.getAnoConclusao().get(Calendar.MONTH)+"-"+forma.getAnoConclusao().get(Calendar.DAY_OF_MONTH));
-            stm.setString(7, forma.getAnoIncio().get(Calendar.YEAR)+"-" + forma.getAnoIncio().get(Calendar.MONTH)+"-"+ forma.getAnoIncio().get(Calendar.DAY_OF_MONTH));
+            stm.setString(6, forma.getAnoConclusao());
+            stm.setString(7, forma.getAnoIncio());
             stm.executeUpdate();
             
         } catch (Exception e) {
@@ -106,9 +106,8 @@ public class ProfessorBD extends FuncionarioBD {
 
                 novoPessoa.setCodPessoa(listasPessoaCadastradas.getInt("codPessoa"));
                 novoPessoa.setCpf(listasPessoaCadastradas.getString("cpf"));
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(listasPessoaCadastradas.getDate("dataNascimento"));
-                novoPessoa.setDataNacimento(cal);
+                novoPessoa.setDataNacimento(listasPessoaCadastradas.getString("dataNascimento"));
+                novoPessoa.setDataExpedicao(listasPessoaCadastradas.getString("dataExpedicao"));
                 novoPessoa.setFoto((Blob) listasPessoaCadastradas.getBlob("foto"));
                 novoPessoa.setNaturalidade(listasPessoaCadastradas.getString("naturalidade"));
                 novoPessoa.setNome(listasPessoaCadastradas.getString("nome"));
@@ -137,8 +136,8 @@ public class ProfessorBD extends FuncionarioBD {
 
     }
     
-    public ArrayList<Professor> localizarAluno() {
-        ArrayList<Professor> listaPessoa = new ArrayList();
+    public ArrayList<Professor> localizarProfessor() {
+        ArrayList<Professor> listaProfessor = new ArrayList();
 
         try {
             Professor novoPessoa;
@@ -151,9 +150,8 @@ public class ProfessorBD extends FuncionarioBD {
 
                 novoPessoa.setCodPessoa(listasPessoaCadastradas.getInt("codPessoa"));
                 novoPessoa.setCpf(listasPessoaCadastradas.getString("cpf"));
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(listasPessoaCadastradas.getDate("dataNascimento"));
-                novoPessoa.setDataNacimento(cal);
+                novoPessoa.setDataNacimento(listasPessoaCadastradas.getString("dataNascimento"));
+                novoPessoa.setDataExpedicao(listasPessoaCadastradas.getString("dataExpedicao"));
                 novoPessoa.setFoto((Blob) listasPessoaCadastradas.getBlob("foto"));
                 novoPessoa.setNaturalidade(listasPessoaCadastradas.getString("naturalidade"));
                 novoPessoa.setNome(listasPessoaCadastradas.getString("nome"));
@@ -167,7 +165,7 @@ public class ProfessorBD extends FuncionarioBD {
                 novoPessoa.setCargaHoraria(listasPessoaCadastradas.getFloat("cargaHoraria"));
                 novoPessoa.setCodDepartamento(listasPessoaCadastradas.getInt("codDepartamento"));
 
-                listaPessoa.add(novoPessoa);
+                listaProfessor.add(novoPessoa);
 
             }
 
@@ -177,7 +175,7 @@ public class ProfessorBD extends FuncionarioBD {
             desconectarBanco();
 
             //    novoPessoa.setEnderecos(listarEnderecoPessoa(novoPessoa));
-            return listaPessoa;
+            return listaProfessor;
         }
 
     }

@@ -531,9 +531,8 @@ public class AlunoBD extends PessoaBD {
 
                 novoPessoa.setCodPessoa(listasPessoaCadastradas.getInt("codPessoa"));
                 novoPessoa.setCpf(listasPessoaCadastradas.getString("cpf"));
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(listasPessoaCadastradas.getDate("dataNascimento"));
-                novoPessoa.setDataNacimento(cal);
+                novoPessoa.setDataNacimento(listasPessoaCadastradas.getString("dataNascimento"));
+                novoPessoa.setDataExpedicao(listasPessoaCadastradas.getString("dataExpedicao"));
                 novoPessoa.setFoto((Blob) listasPessoaCadastradas.getBlob("foto"));
                 novoPessoa.setNaturalidade(listasPessoaCadastradas.getString("naturalidade"));
                 novoPessoa.setNome(listasPessoaCadastradas.getString("nome"));
@@ -579,9 +578,8 @@ public ArrayList<Aluno> localizarAluno(String nomeAluno)
 
                 novoPessoa.setCodPessoa(listasPessoaCadastradas.getInt("codPessoa"));
                 novoPessoa.setCpf(listasPessoaCadastradas.getString("cpf"));
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(listasPessoaCadastradas.getDate("dataNascimento"));
-                novoPessoa.setDataNacimento(cal);
+                novoPessoa.setDataNacimento(listasPessoaCadastradas.getString("dataNascimento"));
+                novoPessoa.setDataExpedicao(listasPessoaCadastradas.getString("dataExpedicao"));
                 novoPessoa.setFoto((Blob) listasPessoaCadastradas.getBlob("foto"));
                 novoPessoa.setNaturalidade(listasPessoaCadastradas.getString("naturalidade"));
                 novoPessoa.setNome(listasPessoaCadastradas.getString("nome"));
@@ -631,9 +629,8 @@ public ArrayList<Aluno> localizarAlunoDocumento(String nomeAluno)
 
                 novoPessoa.setCodPessoa(listasPessoaCadastradas.getInt("codPessoa"));
                 novoPessoa.setCpf(listasPessoaCadastradas.getString("cpf"));
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(listasPessoaCadastradas.getDate("dataNascimento"));
-                novoPessoa.setDataNacimento(cal);
+                novoPessoa.setDataNacimento(listasPessoaCadastradas.getString("dataNascimento"));
+                novoPessoa.setDataExpedicao(listasPessoaCadastradas.getString("dataExpedicao"));
                 novoPessoa.setFoto((Blob) listasPessoaCadastradas.getBlob("foto"));
                 novoPessoa.setNaturalidade(listasPessoaCadastradas.getString("naturalidade"));
                 novoPessoa.setNome(listasPessoaCadastradas.getString("nome"));

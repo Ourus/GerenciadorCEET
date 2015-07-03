@@ -41,16 +41,8 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
         initComponents();
 
         // Criando Painel de Data 
-        Calendar cal = Calendar.getInstance();
-        dataNascimento.setBaseDate(cal.getTime());
-        dataNascimento.setBackground(Color.white);
-        pnDataNascimento.add(dataNascimento);
-        // Definindo o botão DateField (Data Inicio do Semestre) para seleção de uma data e atribuindo uma ação de mudança à ele.
-        dataNascimento.setSize((pnDataNascimento.getWidth()), (pnDataNascimento.getHeight()));
+       
 
-        pnDataExpedicao.add(dataExpedicao);
-        dataExpedicao.setSize((pnDataNascimento.getWidth()), (pnDataNascimento.getHeight()));
-        dataExpedicao.setBackground(Color.white);
 
         cbNao.setSelected(true);
         tfQuais.setEnabled(false);
@@ -183,10 +175,10 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
         ftCelular = new javax.swing.JFormattedTextField();
         ftTelefone = new javax.swing.JFormattedTextField();
         ftCPF = new javax.swing.JFormattedTextField();
-        pnDataNascimento = new javax.swing.JPanel();
-        pnDataExpedicao = new javax.swing.JPanel();
         tfOrgaoEmissor = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
+        ftDataExpedicao = new javax.swing.JFormattedTextField();
+        ftDataNascimento = new javax.swing.JFormattedTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         tfRua = new javax.swing.JTextField();
@@ -373,28 +365,6 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
             }
         });
 
-        javax.swing.GroupLayout pnDataNascimentoLayout = new javax.swing.GroupLayout(pnDataNascimento);
-        pnDataNascimento.setLayout(pnDataNascimentoLayout);
-        pnDataNascimentoLayout.setHorizontalGroup(
-            pnDataNascimentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 94, Short.MAX_VALUE)
-        );
-        pnDataNascimentoLayout.setVerticalGroup(
-            pnDataNascimentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 26, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout pnDataExpedicaoLayout = new javax.swing.GroupLayout(pnDataExpedicao);
-        pnDataExpedicao.setLayout(pnDataExpedicaoLayout);
-        pnDataExpedicaoLayout.setHorizontalGroup(
-            pnDataExpedicaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 93, Short.MAX_VALUE)
-        );
-        pnDataExpedicaoLayout.setVerticalGroup(
-            pnDataExpedicaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
         tfOrgaoEmissor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 tfOrgaoEmissorKeyTyped(evt);
@@ -402,6 +372,18 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
         });
 
         jLabel24.setText("Órgão Emissor:");
+
+        try {
+            ftDataExpedicao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            ftDataNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -431,9 +413,9 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel23)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pnDataExpedicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
+                                .addGap(5, 5, 5)
+                                .addComponent(ftDataExpedicao, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
                                 .addComponent(jLabel24)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(tfOrgaoEmissor, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -448,9 +430,11 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
                                     .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ftCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(tfNomeAluno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(tfNomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(ftDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel30)
                                 .addComponent(tfNaturalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -489,10 +473,8 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(pnDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4))
-                                .addGap(198, 198, 198)
+                                .addComponent(jLabel4)
+                                .addGap(233, 233, 233)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel31)
                                     .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -526,9 +508,10 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
                             .addComponent(jLabel30)
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pnDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfNaturalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfNaturalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ftDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel26)
                             .addComponent(cbNao)
@@ -550,13 +533,16 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(pnDataExpedicao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel23)
-                                .addComponent(tfRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel20)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel23)
+                                    .addComponent(tfRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel20)
+                                    .addComponent(ftDataExpedicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel5)
+                                .addGap(0, 30, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -568,11 +554,7 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
                                     .addComponent(lbCelular)
                                     .addComponent(ftCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbTelefone)
-                                    .addComponent(ftTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel5)
-                                .addGap(0, 30, Short.MAX_VALUE)))
+                                    .addComponent(ftTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(19, 19, 19))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1007,8 +989,8 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
         alunoN.setCompResidencia(compResidencia);
         alunoN.setCorRaca(cbxCorRaca.getSelectedItem()+"");
         alunoN.setCpf(ftCPF.getText());
-        alunoN.setDataExpedicao(cal);
-        alunoN.setDataNacimento(cal2);
+        alunoN.setDataExpedicao(ftDataExpedicao.getText());
+        alunoN.setDataNacimento(ftDataNascimento.getText());
         alunoN.setMatricula(tfMatricula.getText());
         alunoN.setNaturalidade(tfNaturalidade.getText());
         alunoN.setNome(tfNomeAluno.getText());
@@ -1222,6 +1204,8 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField ftCEP;
     private javax.swing.JFormattedTextField ftCPF;
     private javax.swing.JFormattedTextField ftCelular;
+    private javax.swing.JFormattedTextField ftDataExpedicao;
+    private javax.swing.JFormattedTextField ftDataNascimento;
     private javax.swing.JFormattedTextField ftTelefone;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel10;
@@ -1264,8 +1248,6 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
     private javax.swing.JLabel lbFoto;
     private javax.swing.JLabel lbQuais;
     private javax.swing.JLabel lbTelefone;
-    private javax.swing.JPanel pnDataExpedicao;
-    private javax.swing.JPanel pnDataNascimento;
     private javax.swing.JPanel pnFotoAluno;
     private javax.swing.JTextField tfBairro;
     private javax.swing.JTextField tfDepAdministrativa;

@@ -173,8 +173,8 @@ public class PessoaBD extends Conexao {
         try {
             conectarBanco();
             stm = con.createStatement();
-            String sql = "insert into contato (codPessoa,tipo,contato) values(" + pessoa + ","
-                    + "'" + contato.getTipo() + "','" + contato.getContato() + "');";
+            String sql = "insert into contato (codPessoa,email,telefone,celular) values(" + pessoa + ","
+                    + "'" + contato.getEmail() + "','" + contato.getTelefone() + "','" + contato.getCelular() + "');";
             stm.executeUpdate(sql);
 
         } catch (Exception e) {
@@ -192,8 +192,8 @@ public class PessoaBD extends Conexao {
                 conectarBanco();
 
                 stm = con.createStatement();
-                String sql = "insert into contato (codPessoa,tipo,contato) values(" + pessoa + ","
-                        + "'" + contato.getTipo() + "','" + contato.getContato() + "');";
+                String sql = "insert into contato (codPessoa,email,telefone,celular) values(" + pessoa + ","
+                        + "'" + contato.getEmail()+ "','" + contato.getTelefone()+ "','" + contato.getCelular()+ "');";
                 stm.executeUpdate(sql);
             }
         } catch (Exception e) {
@@ -327,8 +327,9 @@ public class PessoaBD extends Conexao {
             while (tabelaResultadoContatos.next()) {
                 novoContato = new Contato();
 
-                novoContato.setContato(tabelaResultadoContatos.getString("contato"));
-                novoContato.setTipo(tabelaResultadoContatos.getString("tipo"));
+                novoContato.setEmail(tabelaResultadoContatos.getString("email"));
+                novoContato.setTelefone(tabelaResultadoContatos.getString("telefone"));
+                novoContato.setCelular(tabelaResultadoContatos.getString("celular"));
                 novoContato.setCodContato(tabelaResultadoContatos.getInt("codContato"));
                 listaContatosPessoa.add(novoContato);
             }
@@ -475,8 +476,9 @@ public class PessoaBD extends Conexao {
         try {
             conectarBanco();
             stm = con.createStatement();
-            String sql = "update contato set tipo='" + contato.getTipo() + "', "
-                    + "contato='" + contato.getContato() + "' where codPessoa=" + pessoa.getCodPessoa() + ";";
+            String sql = "update contato set email='" + contato.getEmail() + "', "
+                    + "telefone='" + contato.getTelefone() +  "', "
+                    + "celular='" + contato.getCelular() +  "' where codPessoa=" + pessoa.getCodPessoa() + ";";
             stm.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, "Atualização realizada com sucesso ");
 

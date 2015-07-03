@@ -19,7 +19,7 @@ create table if not exists pessoa
     foto blob,
     nome varchar (80) not null,
     dataNascimento date,
-    sexo enum ('M','F'),
+    sexo enum ('Masculino','Feminino'),
     cpf char (14) not null,
     rg varchar (15),
     orgaoEmissor varchar (18),
@@ -151,6 +151,8 @@ create table if not exists curso
     codCurso int unsigned not null auto_increment,
     nome varchar(45) not null,
     numeroIdMEC varchar(45) not null,
+    turno varchar(50),
+    quantmodulos varchar(50),
     primary key (codCurso)
 );
 

@@ -1030,22 +1030,11 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
 // contato     
         ArrayList<Contato> cont = new ArrayList();
 
-        contatoN.setTipo(Email.getText());
-        contatoN.setContato(tfEmail.getText());
+        contatoN.setEmail(Email.getText());
+        contatoN.setTelefone(ftTelefone.getText());
+        contatoN.setCelular(ftCelular.getText());
 
-        cont.add(contatoN);
-
-        contatoN2.setTipo(lbTelefone.getText());
-        contatoN2.setContato(ftTelefone.getText());
-
-        cont.add(contatoN2);
-
-        contatoN3.setTipo(lbCelular.getText());
-        contatoN3.setContato(ftCelular.getText());
-
-        cont.add(contatoN3);
-
-        alunob.cadastro(alunoN, enderecoN, cont);
+        alunob.cadastro(alunoN, enderecoN, contatoN);
         cont.clear();
         }
        

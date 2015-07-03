@@ -5,7 +5,7 @@ import java.util.Calendar;
 
 public class FormacaoProfessor
 {
-      private int  codFormacao ;
+    private int  codFormacao ;
     private String tipo;
     private String curso;
     private String instituicao;
@@ -68,5 +68,10 @@ public class FormacaoProfessor
     public void setAnoIncio(Calendar anoIncio) {
         this.anoIncio = anoIncio;
     }
+
+    /**
+     * @return the status
+     */
+    
      
 }

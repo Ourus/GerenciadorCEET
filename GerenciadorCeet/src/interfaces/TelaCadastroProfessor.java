@@ -6,7 +6,14 @@
 
 package interfaces;
 
+import bandoDados.ProfessorBD;
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import modelos.Contato;
+import modelos.Endereco;
+import modelos.FormacaoProfessor;
 import modelos.Professor;
 
 /**
@@ -14,6 +21,11 @@ import modelos.Professor;
  * @author Herlen
  */
 public class TelaCadastroProfessor extends javax.swing.JDialog {
+            Professor profe = new Professor();
+            ProfessorBD professor = new ProfessorBD();
+            Endereco enderecoN = new Endereco();
+            Contato contatoN = new Contato();
+            FormacaoProfessor formacao = new FormacaoProfessor();
 
     /**
      * Creates new form TelaCadastroProfessor
@@ -21,10 +33,69 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
     public TelaCadastroProfessor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+           
+        
+        
+        for(int i = 1950;i<2015;i++)
+        {
+            cbxAnoConclusao.addItem(i);
+        }
+        
+        for(int i = 1950;i<2015;i++)
+        {
+            cbxAnoInicio.addItem(i);
+        }
+        for(int i = 1950;i<2015;i++)
+        {
+            cbxAnoConclusao2.addItem(i);
+        }
+         //add cor/raça
+        cbxCorRaca.removeAllItems();
+        cbxCorRaca.addItem("Branca");
+        cbxCorRaca.addItem("Preta");
+        cbxCorRaca.addItem("Parda");
+        cbxCorRaca.addItem("Amarela");
+        cbxCorRaca.addItem("Indígena");
+        
+        
+        cbxEstado.removeAllItems();
+        String linhaa = "", textos = "";
+        BufferedReader bfs = null;
+        try {
+            FileReader leitor = new FileReader("estadosBrasil.txt"); // Criando um leitor para o arquivo
+            bfs = new BufferedReader(leitor);    // Armazenando o conteúdo obtido pelo leitor em um buffer
+
+            while ((linhaa = bfs.readLine()) != null) // Enquanto houverem linhas a serem lidas no buffer...
+            {
+                cbxEstado.addItem(linhaa);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        
+        //ADD CIDADES DO ES
+        cbxCidade.removeAllItems();
+        String linhas = "", textoss = "";
+        BufferedReader bff = null;
+        try {
+            FileReader leitor = new FileReader("cidadesES.txt"); // Criando um leitor para o arquivo
+            bff = new BufferedReader(leitor);    // Armazenando o conteúdo obtido pelo leitor em um buffer
+
+            while ((linhas = bff.readLine()) != null) // Enquanto houverem linhas a serem lidas no buffer...
+            {
+                cbxCidade.addItem(linhas);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        this.getContentPane().setBackground(Color.white);
+        
         this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.white);
         
-        Professor profe = new Professor();
         
         
     }
@@ -59,6 +130,7 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
         jCheckBox33 = new javax.swing.JCheckBox();
         jLabel37 = new javax.swing.JLabel();
         jTextField16 = new javax.swing.JTextField();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         tfOrgaoEmissor = new javax.swing.JTextField();
@@ -92,14 +164,7 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        cbBacharel = new javax.swing.JCheckBox();
         tfCurso = new javax.swing.JTextField();
-        cbLicenciado = new javax.swing.JCheckBox();
-        cbTecnologo = new javax.swing.JCheckBox();
-        cbComp = new javax.swing.JCheckBox();
-        cbPos = new javax.swing.JCheckBox();
-        cbMestrado = new javax.swing.JCheckBox();
-        cbDoutorado = new javax.swing.JCheckBox();
         jLabel11 = new javax.swing.JLabel();
         tfInstituicao = new javax.swing.JTextField();
         cbPublica = new javax.swing.JCheckBox();
@@ -111,7 +176,8 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
         jLabel19 = new javax.swing.JLabel();
         cbxAnoInicio = new javax.swing.JComboBox();
         jLabel21 = new javax.swing.JLabel();
-        cbxAnoConlusao2 = new javax.swing.JComboBox();
+        cbxAnoConclusao2 = new javax.swing.JComboBox();
+        cbTipo = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         tfRua = new javax.swing.JTextField();
@@ -125,10 +191,14 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
         tfBairro = new javax.swing.JTextField();
         btCadastrarFormacao = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbFormacao = new javax.swing.JTable();
         btConfirmarCadastro = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        tfCargo = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        tfCargaHoraria = new javax.swing.JTextField();
 
         jCheckBox23.setText("Pública");
 
@@ -202,7 +272,7 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
 
         jLabel4.setText("Sexo:");
 
-        cbxTelaCadastroAlunoSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxTelaCadastroAlunoSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
 
         jLabel5.setText("Nascimento:");
 
@@ -356,46 +426,69 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
 
         jLabel1.setText("Curso:");
 
-        cbBacharel.setText("Bacharel");
-
-        cbLicenciado.setText("Licenciado");
-
-        cbTecnologo.setText("Tecnólogo");
-
-        cbComp.setText("Comp.Pedag.");
-
-        cbPos.setText("Pós");
-
-        cbMestrado.setText("Mestrado");
-
-        cbDoutorado.setText("Doutorado");
-
         jLabel11.setText("Instituição:");
 
         cbPublica.setText("Pública");
 
         cbPrivada.setText("Privada");
 
+        buttonGroup1.add(cbConcluido);
         cbConcluido.setText("Concluído:");
+        cbConcluido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbConcluidoActionPerformed(evt);
+            }
+        });
 
-        cbxAnoConclusao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxAnoConclusao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "..." }));
+        cbxAnoConclusao.setEnabled(false);
 
         jLabel18.setText("Ano de conclusão:");
 
+        buttonGroup1.add(cbCursando);
         cbCursando.setText("Cursando:");
+        cbCursando.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCursandoActionPerformed(evt);
+            }
+        });
 
         jLabel19.setText("Ano de início:");
 
-        cbxAnoInicio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxAnoInicio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "..." }));
+        cbxAnoInicio.setEnabled(false);
 
         jLabel21.setText("Ano de conclusão:");
 
-        cbxAnoConlusao2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxAnoConclusao2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "..." }));
+        cbxAnoConclusao2.setEnabled(false);
+
+        cbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Bacharelado", "Licenciatura", "Tecnólogo", "Especialização", "Mestrado", "Doutorado" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(cbConcluido)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel18))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(cbCursando)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel19)))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cbxAnoConclusao, 0, 72, Short.MAX_VALUE)
+                    .addComponent(cbxAnoInicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxAnoConclusao2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(93, 93, 93))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -408,44 +501,13 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tfInstituicao)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbPublica)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cbPrivada)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(cbBacharel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbLicenciado)
+                        .addComponent(cbPublica)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbTecnologo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbComp)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbPos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbMestrado)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbDoutorado))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(cbConcluido)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel18)
-                        .addGap(6, 6, 6)
-                        .addComponent(cbxAnoConclusao, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(cbCursando)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbxAnoInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel21)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbxAnoConlusao2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(cbPrivada))
+                    .addComponent(cbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -453,17 +515,9 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(tfCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbBacharel)
-                    .addComponent(cbLicenciado)
-                    .addComponent(cbTecnologo)
-                    .addComponent(cbComp)
-                    .addComponent(cbPos)
-                    .addComponent(cbMestrado)
-                    .addComponent(cbDoutorado))
-                .addGap(2, 2, 2)
+                    .addComponent(tfCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(tfInstituicao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -480,7 +534,7 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
                     .addComponent(jLabel19)
                     .addComponent(cbxAnoInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21)
-                    .addComponent(cbxAnoConlusao2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbxAnoConclusao2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -551,7 +605,7 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
 
         btCadastrarFormacao.setText("Cadastrar Formação");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbFormacao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -559,16 +613,25 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Curso", "Instituição", "Status", "Publica/Privada"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbFormacao);
 
         btConfirmarCadastro.setText("Confirmar Cadastro");
+        btConfirmarCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConfirmarCadastroActionPerformed(evt);
+            }
+        });
 
         btCancelar.setText("Cancelar");
 
         btLimpar.setText("Limpar");
+
+        jLabel3.setText("Cargo:");
+
+        jLabel10.setText("Carga Horaria:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -582,49 +645,138 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btCadastrarFormacao)
-                                .addGap(187, 187, 187)))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 523, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                        .addComponent(btCadastrarFormacao)
+                        .addGap(198, 198, 198))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(btConfirmarCadastro)
-                        .addGap(104, 104, 104)
-                        .addComponent(btLimpar)
-                        .addGap(104, 104, 104)
-                        .addComponent(btCancelar)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(btConfirmarCadastro)
+                                .addGap(80, 80, 80)
+                                .addComponent(btLimpar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btCancelar)
+                                .addGap(31, 31, 31))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(tfCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfCargaHoraria, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btCadastrarFormacao)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfCargaHoraria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btConfirmarCadastro)
                             .addComponent(btLimpar)
-                            .addComponent(btCancelar)
-                            .addComponent(btConfirmarCadastro))
-                        .addGap(39, 39, 39))))
+                            .addComponent(btCancelar))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cbCursandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCursandoActionPerformed
+        if(cbCursando.isSelected())
+        {
+            cbxAnoConclusao.setEnabled(false);
+            cbxAnoInicio.setEnabled(true);
+            cbxAnoConclusao2.setEnabled(true);
+            cbxAnoConclusao.setSelectedIndex(0);
+        }
+    }//GEN-LAST:event_cbCursandoActionPerformed
+
+    private void cbConcluidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbConcluidoActionPerformed
+        if(cbConcluido.isSelected())
+        {
+            cbxAnoConclusao.setEnabled(true);
+            cbxAnoInicio.setEnabled(false);
+            cbxAnoConclusao2.setEnabled(false);
+            cbxAnoConclusao2.setSelectedIndex(0);
+            cbxAnoInicio.setSelectedIndex(0);
+            
+        }
+    }//GEN-LAST:event_cbConcluidoActionPerformed
+
+    private void btConfirmarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarCadastroActionPerformed
+       //Opções do professor
+        profe.setNome(tfNomeProfessor.getText());
+        profe.setNomeMae(tfNomeMae.getText());
+        profe.setNomePai(tfNomePai.getText());
+        profe.setCpf(tfCPF.getText());
+        profe.setCorRaca(cbxCorRaca.getSelectedItem()+"");
+        profe.setCompResidencia(null);
+        profe.setCompFoto(null);
+        profe.setCargo(tfCargo.getText());
+        profe.setCargaHoraria(TOP_ALIGNMENT);
+        profe.setSexo(null);
+        profe.setUf(null);
+        profe.setSalario(TOP_ALIGNMENT);
+        profe.setRG(null);
+        profe.setOrgaoEmissor(null);
+        profe.setNaturalidade(null);
+        profe.setCertidaoNascimento(null);
+        profe.setComprovanteEscolarida(null);
+        
+        //endereço
+        enderecoN.setBairro(null);
+        enderecoN.setCep(null);
+        enderecoN.setCidade(null);
+        enderecoN.setComplemento(null);
+        enderecoN.setRua(null);
+        enderecoN.setUf(null);
+        
+        //contato
+        contatoN.setEmail(tfEmail.getText());
+        contatoN.setTelefone(tfTelefone.getText());
+        contatoN.setCelular(tfCelular.getText());
+        
+        //formacao
+        formacao.setCurso(tfCurso.getText());
+        formacao.setInstituicao(tfInstituicao.getText());
+        formacao.setSituacao(null);
+        formacao.setTipo(null);
+        formacao.setAnoIncio(null);
+        formacao.setAnoConclusao(null);
+        
+        
+    }//GEN-LAST:event_btConfirmarCadastroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -673,19 +825,14 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btConfirmarCadastro;
     private javax.swing.JButton btLimpar;
-    private javax.swing.JCheckBox cbBacharel;
-    private javax.swing.JCheckBox cbComp;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox cbConcluido;
     private javax.swing.JCheckBox cbCursando;
-    private javax.swing.JCheckBox cbDoutorado;
-    private javax.swing.JCheckBox cbLicenciado;
-    private javax.swing.JCheckBox cbMestrado;
-    private javax.swing.JCheckBox cbPos;
     private javax.swing.JCheckBox cbPrivada;
     private javax.swing.JCheckBox cbPublica;
-    private javax.swing.JCheckBox cbTecnologo;
+    private javax.swing.JComboBox cbTipo;
     private javax.swing.JComboBox cbxAnoConclusao;
-    private javax.swing.JComboBox cbxAnoConlusao2;
+    private javax.swing.JComboBox cbxAnoConclusao2;
     private javax.swing.JComboBox cbxAnoInicio;
     private javax.swing.JComboBox cbxCidade;
     private javax.swing.JComboBox cbxCorRaca;
@@ -706,6 +853,7 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
     private javax.swing.JComboBox jComboBox8;
     private javax.swing.JComboBox jComboBox9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -722,6 +870,7 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel33;
@@ -740,12 +889,14 @@ public class TelaCadastroProfessor extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
+    private javax.swing.JTable tbFormacao;
     private javax.swing.JTextField tfBairro;
     private javax.swing.JTextField tfCEP;
     private javax.swing.JTextField tfCPF;
+    private javax.swing.JTextField tfCargaHoraria;
+    private javax.swing.JTextField tfCargo;
     private javax.swing.JTextField tfCelular;
     private javax.swing.JTextField tfCurso;
     private javax.swing.JTextField tfDataExpedicao;

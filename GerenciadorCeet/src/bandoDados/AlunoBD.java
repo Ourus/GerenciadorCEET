@@ -616,5 +616,56 @@ public ArrayList<Aluno> localizarAluno(String nomeAluno)
 }
 
 
+public ArrayList<Aluno> localizarAlunoDocumento(String nomeAluno)
+{   
+    ArrayList<Aluno> listaPessoaDocumento = new ArrayList();
+
+        try {
+            Aluno novoPessoa;
+            conectarBanco();
+            String sql = "SELECT * FROM ceet.pessoa,ceet.aluno where compResidencia = 'false' or compFoto = 'true' group by pessoa.codPessoa;";
+            stm = con.createStatement();
+            ResultSet listasPessoaCadastradas = stm.executeQuery(sql);
+            while (listasPessoaCadastradas.next()) {
+                novoPessoa = new Aluno();
+
+                novoPessoa.setCodPessoa(listasPessoaCadastradas.getInt("codPessoa"));
+                novoPessoa.setCpf(listasPessoaCadastradas.getString("cpf"));
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(listasPessoaCadastradas.getDate("dataNascimento"));
+                novoPessoa.setDataNacimento(cal);
+                novoPessoa.setFoto((Blob) listasPessoaCadastradas.getBlob("foto"));
+                novoPessoa.setNaturalidade(listasPessoaCadastradas.getString("naturalidade"));
+                novoPessoa.setNome(listasPessoaCadastradas.getString("nome"));
+                novoPessoa.setNomeMae(listasPessoaCadastradas.getString("nomeMae"));
+                novoPessoa.setSenha(listasPessoaCadastradas.getString("senha"));
+                novoPessoa.setNomePai(listasPessoaCadastradas.getString("nomePai"));
+                novoPessoa.setRG(listasPessoaCadastradas.getString("rg"));
+                novoPessoa.setUf(listasPessoaCadastradas.getString("uf"));
+                novoPessoa.setMatricula(listasPessoaCadastradas.getString("matricula"));
+                novoPessoa.setCertidaoNascimento(listasPessoaCadastradas.getString("certidaoNascimento"));
+                novoPessoa.setComprovanteEscolarida(listasPessoaCadastradas.getString("compEscolaridade"));
+                novoPessoa.setStatus(listasPessoaCadastradas.getString("status"));
+                novoPessoa.setObservacao(listasPessoaCadastradas.getString("observacao"));
+                novoPessoa.setCorRaca(listasPessoaCadastradas.getString("corRaca"));
+                novoPessoa.setSexo(listasPessoaCadastradas.getString("sexo"));
+                novoPessoa.setCompFoto(listasPessoaCadastradas.getString("compFoto"));
+
+                listaPessoaDocumento.add(novoPessoa);
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        } finally {
+            desconectarBanco();
+
+            //    novoPessoa.setEnderecos(listarEnderecoPessoa(novoPessoa));
+            return listaPessoaDocumento;
+        }
+    
+    
+}
+
 }
 

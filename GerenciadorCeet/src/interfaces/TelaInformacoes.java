@@ -8,6 +8,7 @@ package interfaces;
 
 import bandoDados.PessoaBD;
 import modelos.Aluno;
+import modelos.Contato;
 import modelos.Pessoa;
 
 /**
@@ -34,6 +35,7 @@ public class TelaInformacoes extends javax.swing.JFrame{
         lbNomePai.setText(codPessoa.getNomePai());
         lbNomeMae.setText(codPessoa.getNomeMae());
         lbEstado.setText(codPessoa.getUf());
+        
         
     }
 

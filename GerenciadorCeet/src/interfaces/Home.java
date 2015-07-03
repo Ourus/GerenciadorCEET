@@ -10,6 +10,10 @@ import BancoDados.ConexaoBanco;
 import Classes.Login;
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.BorderFactory;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,7 +28,12 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
-         
+        
+            JLabel status = new JLabel();
+            status.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            status.setBounds(275, 30, 225, 225);
+            status.setIcon(new ImageIcon(""));
+           jMenu1.setIcon(new ImageIcon("imagens/application_form_add.png"));
       
        ConexaoBanco teste = new ConexaoBanco();
        
@@ -51,6 +60,7 @@ public class Home extends javax.swing.JFrame {
         pfSenha = new javax.swing.JPasswordField();
         btLogar = new javax.swing.JButton();
         lbErro = new javax.swing.JLabel();
+        lbTela = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -86,6 +96,9 @@ public class Home extends javax.swing.JFrame {
 
         lbErro.setForeground(new java.awt.Color(255, 0, 0));
 
+        lbTela.setIcon(new javax.swing.ImageIcon("D:\\Users\\alunom\\Meus Documentos\\NetBeansProjects\\gerenciadorceet\\GerenciadorCeet\\vasco.png")); // NOI18N
+        lbTela.setText("jLabel2");
+
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
@@ -109,11 +122,14 @@ public class Home extends javax.swing.JFrame {
                                 .addGap(10, 10, 10)
                                 .addComponent(lbErro, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(173, Short.MAX_VALUE))
+            .addComponent(lbTela, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(251, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addComponent(lbTela, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tfLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -133,10 +149,12 @@ public class Home extends javax.swing.JFrame {
         jDesktopPane1.setLayer(pfSenha, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(btLogar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(lbErro, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(lbTela, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jMenu1.setText("Opções");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItem1.setIcon(new javax.swing.ImageIcon("D:\\Users\\alunom\\Meus Documentos\\NetBeansProjects\\gerenciadorceet\\GerenciadorCeet\\src\\imagens\\exclamation.png")); // NOI18N
         jMenuItem1.setText("Sair");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,6 +280,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lbErro;
+    private javax.swing.JLabel lbTela;
     private javax.swing.JPasswordField pfSenha;
     private javax.swing.JTextField tfLogin;
     // End of variables declaration//GEN-END:variables

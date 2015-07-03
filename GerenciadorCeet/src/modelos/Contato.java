@@ -4,40 +4,80 @@ package modelos;
 public class Contato 
 {
     private int codContato;
-    private String tipo;
-    private String Contato;
+    private String Email;
+    private String Telefone;
+    private String Celular;
     private int codPessoa;
 
+    /**
+     * @return the codContato
+     */
     public int getCodContato() {
         return codContato;
     }
 
+    /**
+     * @param codContato the codContato to set
+     */
     public void setCodContato(int codContato) {
         this.codContato = codContato;
     }
 
-    public String getTipo() {
-        return tipo;
+    /**
+     * @return the Email
+     */
+    public String getEmail() {
+        return Email;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    /**
+     * @param Email the Email to set
+     */
+    public void setEmail(String Email) {
+        this.Email = Email;
     }
 
-    public String getContato() {
-        return Contato;
+    /**
+     * @return the Telefone
+     */
+    public String getTelefone() {
+        return Telefone;
     }
 
-    public void setContato(String Contato) {
-        this.Contato = Contato;
+    /**
+     * @param Telefone the Telefone to set
+     */
+    public void setTelefone(String Telefone) {
+        this.Telefone = Telefone;
     }
 
+    /**
+     * @return the Celular
+     */
+    public String getCelular() {
+        return Celular;
+    }
+
+    /**
+     * @param Celular the Celular to set
+     */
+    public void setCelular(String Celular) {
+        this.Celular = Celular;
+    }
+
+    /**
+     * @return the codPessoa
+     */
     public int getCodPessoa() {
         return codPessoa;
     }
 
+    /**
+     * @param codPessoa the codPessoa to set
+     */
     public void setCodPessoa(int codPessoa) {
         this.codPessoa = codPessoa;
     }
+
     
 }

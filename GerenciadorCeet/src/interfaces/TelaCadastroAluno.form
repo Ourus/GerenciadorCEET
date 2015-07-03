@@ -37,26 +37,29 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel1" min="-2" pref="619" max="-2" attributes="0"/>
                   <Component id="jPanel2" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="26" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel3" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jPanel3" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="btConfirmarCadastro" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="btLimpar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="btCancelar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace pref="753" max="32767" attributes="0"/>
-              <Component id="btConfirmarCadastro" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-              <Component id="btLimpar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="btCancelar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -67,13 +70,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btConfirmarCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btConfirmarCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
@@ -354,11 +363,9 @@
         <Component class="javax.swing.JComboBox" name="cbxSexo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="2">
+                <StringItem index="0" value="Masculino"/>
+                <StringItem index="1" value="Feminino"/>
               </StringArray>
             </Property>
           </Properties>
@@ -416,11 +423,12 @@
         <Component class="javax.swing.JComboBox" name="cbxCorRaca">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="5">
+                <StringItem index="0" value="Branca"/>
+                <StringItem index="1" value="Preta"/>
+                <StringItem index="2" value="Parda"/>
+                <StringItem index="3" value="Amarela"/>
+                <StringItem index="4" value="Ind&#xed;gena"/>
               </StringArray>
             </Property>
           </Properties>
@@ -497,11 +505,34 @@
         <Component class="javax.swing.JComboBox" name="cbxEstado">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="27">
+                <StringItem index="0" value="AC"/>
+                <StringItem index="1" value="AL"/>
+                <StringItem index="2" value="AP"/>
+                <StringItem index="3" value="AM"/>
+                <StringItem index="4" value="BA"/>
+                <StringItem index="5" value="CE"/>
+                <StringItem index="6" value="DF"/>
+                <StringItem index="7" value="ES"/>
+                <StringItem index="8" value="GO"/>
+                <StringItem index="9" value="MA"/>
+                <StringItem index="10" value="MT"/>
+                <StringItem index="11" value="MS"/>
+                <StringItem index="12" value="MG"/>
+                <StringItem index="13" value="PA"/>
+                <StringItem index="14" value="PB "/>
+                <StringItem index="15" value="PR"/>
+                <StringItem index="16" value="PE"/>
+                <StringItem index="17" value="PI"/>
+                <StringItem index="18" value="RJ"/>
+                <StringItem index="19" value="RN"/>
+                <StringItem index="20" value="RS"/>
+                <StringItem index="21" value="RO"/>
+                <StringItem index="22" value="RR"/>
+                <StringItem index="23" value="SC"/>
+                <StringItem index="24" value="SP"/>
+                <StringItem index="25" value="SE"/>
+                <StringItem index="26" value="TO"/>
               </StringArray>
             </Property>
           </Properties>
@@ -678,7 +709,7 @@
                           <Component id="ftCEP" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="14" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -722,11 +753,84 @@
         <Component class="javax.swing.JComboBox" name="cbxCidade">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="77">
+                <StringItem index="0" value="Afonso Claudio"/>
+                <StringItem index="1" value="Agua Doce do Norte"/>
+                <StringItem index="2" value="Aguia Branca"/>
+                <StringItem index="3" value="Alegre"/>
+                <StringItem index="4" value="Alfredo Chaves"/>
+                <StringItem index="5" value="Alto Rio Novo"/>
+                <StringItem index="6" value="Anchieta"/>
+                <StringItem index="7" value="Apiaca"/>
+                <StringItem index="8" value="Aracruz"/>
+                <StringItem index="9" value="Atilio Vivacqua"/>
+                <StringItem index="10" value="Baixo Guandu"/>
+                <StringItem index="11" value="Barra de Sao Francisco"/>
+                <StringItem index="12" value="Boa Esperanca"/>
+                <StringItem index="13" value="Bom Jesus do Norte"/>
+                <StringItem index="14" value="Brejetuba"/>
+                <StringItem index="15" value="Cachoeiro de Itapemirim"/>
+                <StringItem index="16" value="Cariacica"/>
+                <StringItem index="17" value="Castelo"/>
+                <StringItem index="18" value="Colatina"/>
+                <StringItem index="19" value="Conceicao da Barra"/>
+                <StringItem index="20" value="Conceicao do Castelo"/>
+                <StringItem index="21" value="Divino de Sao Lourenco"/>
+                <StringItem index="22" value="Domingos Martins"/>
+                <StringItem index="23" value="Dores do Rio Preto"/>
+                <StringItem index="24" value="Ecoporanga"/>
+                <StringItem index="25" value="Fundao"/>
+                <StringItem index="26" value="Guacui"/>
+                <StringItem index="27" value="Guarapari"/>
+                <StringItem index="28" value="Ibatiba"/>
+                <StringItem index="29" value="Ibiracu"/>
+                <StringItem index="30" value="Ibitirama"/>
+                <StringItem index="31" value="Iconha"/>
+                <StringItem index="32" value="Irupi"/>
+                <StringItem index="33" value="Itaguacu"/>
+                <StringItem index="34" value="Itapemirim"/>
+                <StringItem index="35" value="Itarana"/>
+                <StringItem index="36" value="Iuna"/>
+                <StringItem index="37" value="Jaguare"/>
+                <StringItem index="38" value="Jeronimo Monteiro"/>
+                <StringItem index="39" value="Joao Neiva"/>
+                <StringItem index="40" value="Laranja da Terra"/>
+                <StringItem index="41" value="Linhares"/>
+                <StringItem index="42" value="Mantenopolis"/>
+                <StringItem index="43" value="Marataizes"/>
+                <StringItem index="44" value="Marechal Floriano"/>
+                <StringItem index="45" value="Marilandia"/>
+                <StringItem index="46" value="Mimoso do Sul"/>
+                <StringItem index="47" value="Montanha"/>
+                <StringItem index="48" value="Mucurici"/>
+                <StringItem index="49" value="Muniz Freire"/>
+                <StringItem index="50" value="Muqui"/>
+                <StringItem index="51" value="Nova Venecia"/>
+                <StringItem index="52" value="Pancas"/>
+                <StringItem index="53" value="Pedro Canario"/>
+                <StringItem index="54" value="Pinheiros"/>
+                <StringItem index="55" value="Piuma"/>
+                <StringItem index="56" value="Ponto Belo"/>
+                <StringItem index="57" value="Presidente Kennedy"/>
+                <StringItem index="58" value="Rio Bananal"/>
+                <StringItem index="59" value="Rio Novo do Sul"/>
+                <StringItem index="60" value="Santa Leopoldina"/>
+                <StringItem index="61" value="Santa Maria de Jetiba"/>
+                <StringItem index="62" value="Santa Teresa"/>
+                <StringItem index="63" value="Sao Domingos do Norte"/>
+                <StringItem index="64" value="Sao Gabriel da Palha"/>
+                <StringItem index="65" value="Sao Jose do Calcado"/>
+                <StringItem index="66" value="Sao Mateus"/>
+                <StringItem index="67" value="Sao Roque do Canaa"/>
+                <StringItem index="68" value="Serra"/>
+                <StringItem index="69" value="Sooretama"/>
+                <StringItem index="70" value="Vargem Alta"/>
+                <StringItem index="71" value="Venda Nova do Imigrante"/>
+                <StringItem index="72" value="Viana"/>
+                <StringItem index="73" value="Vila Pavao"/>
+                <StringItem index="74" value="Vila Valerio"/>
+                <StringItem index="75" value="Vila Velha"/>
+                <StringItem index="76" value="Vitoria"/>
               </StringArray>
             </Property>
           </Properties>

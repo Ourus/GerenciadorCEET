@@ -216,12 +216,12 @@ public class PessoaBD extends Conexao {
             PreparedStatement stm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stm.setString(1, pessoa.getNome());
             stm.setString(2, pessoa.getRG());
-            stm.setString(3, pessoa.getDataExpedicao().get(Calendar.YEAR)+"-"+ formato.format(pessoa.getDataExpedicao().get(Calendar.MONTH)/4)+ "-"+ formato.format(pessoa.getDataExpedicao().get(Calendar.DAY_OF_MONTH)));
+            stm.setString(3, pessoa.getDataExpedicao());
             stm.setString(4, pessoa.getOrgaoEmissor());
             stm.setString(5, pessoa.getCpf());
             stm.setString(6, pessoa.getNaturalidade());
             // new Date(pessoa.getDataNacimento().get(Calendar.DAY_OF_MONTH), pessoa.getDataNacimento().get(Calendar.MONTH), pessoa.getDataNacimento().get(Calendar.YEAR))
-            stm.setString(7, pessoa.getDataNacimento().get(Calendar.YEAR) + "-" + formato.format(pessoa.getDataNacimento().get(Calendar.MONTH)/4) + "-" + formato.format(pessoa.getDataNacimento().get(Calendar.DAY_OF_MONTH)));
+            stm.setString(7, pessoa.getDataNacimento());
             stm.setString(8, pessoa.getUf());
             stm.setString(9, pessoa.getNomePai());
             stm.setString(10, pessoa.getNomeMae());
@@ -356,7 +356,8 @@ public class PessoaBD extends Conexao {
                 pessoaCadastrada.setCpf(tabelaResultante.getString("cpf"));
                 Calendar cal = Calendar.getInstance();
                 cal.setTime(tabelaResultante.getDate("dataNascimento"));
-                pessoaCadastrada.setDataNacimento(cal);
+                pessoaCadastrada.setDataNacimento(tabelaResultante.getString("dataNascimento"));
+                pessoaCadastrada.setDataExpedicao(tabelaResultante.getString("dataExpedicao"));
                 pessoaCadastrada.setFoto((Blob) tabelaResultante.getBlob("foto"));
                 pessoaCadastrada.setNaturalidade(tabelaResultante.getString("naturalidade"));
                 pessoaCadastrada.setNome(tabelaResultante.getString("nome"));
@@ -389,9 +390,7 @@ public class PessoaBD extends Conexao {
 
                 novoPessoa.setCodPessoa(listasPessoaCadastradas.getInt("codPessoa"));
                 novoPessoa.setCpf(listasPessoaCadastradas.getString("cpf"));
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(listasPessoaCadastradas.getDate("dataNascimento"));
-                novoPessoa.setDataNacimento(cal);
+                novoPessoa.setDataNacimento(listasPessoaCadastradas.getString("dataNascimento"));
                 novoPessoa.setFoto((Blob) listasPessoaCadastradas.getBlob("foto"));
                 novoPessoa.setNaturalidade(listasPessoaCadastradas.getString("naturalidade"));
                 novoPessoa.setNome(listasPessoaCadastradas.getString("nome"));
@@ -428,10 +427,9 @@ public class PessoaBD extends Conexao {
 
                 novoPessoa.setCodPessoa(listasPessoaCadastradas.getInt("codPessoa"));
                 novoPessoa.setCpf(listasPessoaCadastradas.getString("cpf"));
-                Calendar cal = Calendar.getInstance();
                 novoPessoa.setSenha(listasPessoaCadastradas.getString("senha"));
-                cal.setTime(listasPessoaCadastradas.getDate("dataNascimento"));
-                novoPessoa.setDataNacimento(cal);
+                novoPessoa.setDataNacimento(listasPessoaCadastradas.getString("dataNascimento"));
+                novoPessoa.setDataExpedicao(listasPessoaCadastradas.getString("dataExpedicao"));
                 novoPessoa.setFoto((Blob) listasPessoaCadastradas.getBlob("foto"));
                 novoPessoa.setNaturalidade(listasPessoaCadastradas.getString("naturalidade"));
                 novoPessoa.setNome(listasPessoaCadastradas.getString("nome"));

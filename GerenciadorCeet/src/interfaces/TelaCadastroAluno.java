@@ -49,55 +49,23 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
         tfQuais.setVisible(false);
         lbQuais.setText("");
 
-        cbxEstado.removeAllItems();
-        String linhaa = "", textos = "";
-        BufferedReader bfs = null;
-        try {
-            FileReader leitor = new FileReader("estadosBrasil.txt"); // Criando um leitor para o arquivo
-            bfs = new BufferedReader(leitor);    // Armazenando o conteúdo obtido pelo leitor em um buffer
-
-            while ((linhaa = bfs.readLine()) != null) // Enquanto houverem linhas a serem lidas no buffer...
-            {
-                cbxEstado.addItem(linhaa);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        
 
         //ADD CIDADES DO ES
-        cbxCidade.removeAllItems();
-        String linhas = "", textoss = "";
-        BufferedReader bff = null;
-        try {
-            FileReader leitor = new FileReader("cidadesES.txt"); // Criando um leitor para o arquivo
-            bff = new BufferedReader(leitor);    // Armazenando o conteúdo obtido pelo leitor em um buffer
-
-            while ((linhas = bff.readLine()) != null) // Enquanto houverem linhas a serem lidas no buffer...
-            {
-                cbxCidade.addItem(linhas);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+      
 
         this.getContentPane().setBackground(Color.white);
 
         // removendo os itens primarios do comboBox 
         cbxTelaCadastroAlunoCurso.removeAllItems();
-        cbxSexo.removeAllItems();
         cbxTurno.removeAllItems();
         cbxMod.removeAllItems();
 
-        cbxCorRaca.removeAllItems();
 
         // ADD itens ao TURNO de Cadastro de alunos
         cbxTurno.addItem("MATUTINO");
         cbxTurno.addItem("VESPERTINO");
         cbxTurno.addItem("NOTURNO");
-
-        // add itens de SEXO a tela de cadastro de alunos
-        cbxSexo.addItem("F");
-        cbxSexo.addItem("M");
 
         //add itens de MODULO a tela de cadastro de alunos
         cbxMod.addItem("Mód. I");
@@ -107,11 +75,6 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
 
         //add estados
         //add cor/raça
-        cbxCorRaca.addItem("Branca");
-        cbxCorRaca.addItem("Preta");
-        cbxCorRaca.addItem("Parda");
-        cbxCorRaca.addItem("Amarela");
-        cbxCorRaca.addItem("Indígena");
 
         // add itens de OPÇÃO DE CURSOS a tela de cadastro de alunos
         cbxTelaCadastroAlunoCurso.addItem("Téc. Informatica");
@@ -240,7 +203,7 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
 
         jLabel3.setText("Sexo:");
 
-        cbxSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
 
         jLabel4.setText("Nascimento:");
 
@@ -270,7 +233,7 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
 
         jLabel25.setText("Cor/Raça:");
 
-        cbxCorRaca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxCorRaca.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Branca", "Preta", "Parda", "Amarela", "Indígena" }));
 
         jLabel26.setText("Necessidades Educacionais Especiais?");
 
@@ -314,7 +277,7 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
 
         jLabel31.setText("Estado:");
 
-        cbxEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB ", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
         pnFotoAluno.setBackground(new java.awt.Color(255, 255, 255));
         pnFotoAluno.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -589,7 +552,7 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
 
         jLabel17.setText("Cidade:");
 
-        cbxCidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxCidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Afonso Claudio", "Agua Doce do Norte", "Aguia Branca", "Alegre", "Alfredo Chaves", "Alto Rio Novo", "Anchieta", "Apiaca", "Aracruz", "Atilio Vivacqua", "Baixo Guandu", "Barra de Sao Francisco", "Boa Esperanca", "Bom Jesus do Norte", "Brejetuba", "Cachoeiro de Itapemirim", "Cariacica", "Castelo", "Colatina", "Conceicao da Barra", "Conceicao do Castelo", "Divino de Sao Lourenco", "Domingos Martins", "Dores do Rio Preto", "Ecoporanga", "Fundao", "Guacui", "Guarapari", "Ibatiba", "Ibiracu", "Ibitirama", "Iconha", "Irupi", "Itaguacu", "Itapemirim", "Itarana", "Iuna", "Jaguare", "Jeronimo Monteiro", "Joao Neiva", "Laranja da Terra", "Linhares", "Mantenopolis", "Marataizes", "Marechal Floriano", "Marilandia", "Mimoso do Sul", "Montanha", "Mucurici", "Muniz Freire", "Muqui", "Nova Venecia", "Pancas", "Pedro Canario", "Pinheiros", "Piuma", "Ponto Belo", "Presidente Kennedy", "Rio Bananal", "Rio Novo do Sul", "Santa Leopoldina", "Santa Maria de Jetiba", "Santa Teresa", "Sao Domingos do Norte", "Sao Gabriel da Palha", "Sao Jose do Calcado", "Sao Mateus", "Sao Roque do Canaa", "Serra", "Sooretama", "Vargem Alta", "Venda Nova do Imigrante", "Viana", "Vila Pavao", "Vila Valerio", "Vila Velha", "Vitoria" }));
 
         try {
             ftCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
@@ -647,7 +610,7 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
                         .addComponent(jLabel15)
                         .addComponent(tfBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(ftCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 14, Short.MAX_VALUE))
+                .addGap(0, 26, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -907,23 +870,24 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(3, 3, 3))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(753, Short.MAX_VALUE)
-                .addComponent(btConfirmarCadastro)
-                .addGap(48, 48, 48)
-                .addComponent(btLimpar)
-                .addGap(40, 40, 40)
-                .addComponent(btCancelar)
-                .addGap(63, 63, 63))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(3, 3, 3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btConfirmarCadastro)
+                        .addGap(48, 48, 48)
+                        .addComponent(btLimpar)
+                        .addGap(40, 40, 40)
+                        .addComponent(btCancelar)
+                        .addGap(63, 63, 63))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -932,13 +896,16 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btConfirmarCadastro)
-                            .addComponent(btLimpar)
-                            .addComponent(btCancelar)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(115, 115, 115)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btConfirmarCadastro)
+                                    .addComponent(btLimpar)
+                                    .addComponent(btCancelar)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

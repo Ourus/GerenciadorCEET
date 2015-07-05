@@ -35,7 +35,6 @@ public class Home extends javax.swing.JFrame {
        for (Login temp: teste.contasCadastradas())
        {    
            contas.add(temp.getLogin()+" "+temp.getSenha());
-           nivel = temp.getNivel();
        }
     }
 
@@ -55,10 +54,10 @@ public class Home extends javax.swing.JFrame {
         pfSenha = new javax.swing.JPasswordField();
         btLogar = new javax.swing.JButton();
         lbErro = new javax.swing.JLabel();
-        lbTela = new javax.swing.JLabel();
-        lbTeste = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -92,59 +91,54 @@ public class Home extends javax.swing.JFrame {
 
         lbErro.setForeground(new java.awt.Color(255, 0, 0));
 
-        lbTela.setText("jLabel2");
-
-        lbTeste.setText("jLabel2");
+        jButton1.setText("Atualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(131, 131, 131)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(tfLogin)
+                        .addComponent(pfSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(227, 227, 227)
-                        .addComponent(btLogar))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
+                        .addGap(10, 10, 10)
                         .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(tfLogin)
-                                .addComponent(pfSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))
                             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(lbErro, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(23, 23, 23)
-                        .addComponent(lbTeste, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
-            .addComponent(lbTela, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(btLogar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1))
+                            .addComponent(lbErro, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(lbTela, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(tfLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(pfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbErro, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbTeste, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(34, 253, Short.MAX_VALUE)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(tfLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(pfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btLogar)
+                .addComponent(lbErro, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btLogar)
+                    .addComponent(jButton1))
                 .addGap(19, 19, 19))
         );
         jDesktopPane1.setLayer(tfLogin, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -153,13 +147,19 @@ public class Home extends javax.swing.JFrame {
         jDesktopPane1.setLayer(pfSenha, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(btLogar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(lbErro, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(lbTela, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(lbTeste, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jMenu1.setText("Opções");
 
+        jMenuItem2.setText("Código");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItem1.setIcon(new javax.swing.ImageIcon("D:\\Users\\alunom\\Meus Documentos\\NetBeansProjects\\gerenciadorceet\\GerenciadorCeet\\src\\imagens\\exclamation.png")); // NOI18N
         jMenuItem1.setText("Sair");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,6 +217,23 @@ public class Home extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        TelaCodigo telaC = new TelaCodigo();
+        telaC.setVisible(true);
+        telaC.setAutoRequestFocus(true);
+        telaC.setLocationRelativeTo(this);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ConexaoBanco teste = new ConexaoBanco();
+       contas.clear();
+       for (Login temp: teste.contasCadastradas())
+       {    
+           contas.add(temp.getLogin()+" "+temp.getSenha());
+       }
+       JOptionPane.showMessageDialog(rootPane, "Cadastros Atualizados", "Atualizado", 1);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void logar()
     {
         String login = tfLogin.getText() + " " + pfSenha.getText();
@@ -235,7 +252,7 @@ public class Home extends javax.swing.JFrame {
                 
             } else {
                 lbErro.setText("");
-                JOptionPane.showMessageDialog(rootPane, "Login e/ou Senha Incorreto(s).", "Erro Ao Logar", 2);
+                JOptionPane.showMessageDialog(rootPane, "Login e/ou Senha Incorreto(s).", "Erro ao logar", 0);
             }
         }
     }
@@ -278,15 +295,15 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btLogar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JLabel lbErro;
-    private javax.swing.JLabel lbTela;
-    private javax.swing.JLabel lbTeste;
     private javax.swing.JPasswordField pfSenha;
     private javax.swing.JTextField tfLogin;
     // End of variables declaration//GEN-END:variables

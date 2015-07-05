@@ -104,7 +104,7 @@ public class TelaNovoUsuario extends javax.swing.JDialog {
 
         cbxNivel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btSalvar.setText("Salvar");
+        btSalvar.setText("Cadastrar");
         btSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSalvarActionPerformed(evt);

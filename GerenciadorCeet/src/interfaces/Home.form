@@ -9,13 +9,18 @@
             <Property name="text" type="java.lang.String" value="Op&#xe7;&#xf5;es"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C&#xf3;digo"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Alt+F4"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\Users\alunom\Meus Documentos\NetBeansProjects\gerenciadorceet\GerenciadorCeet\src\imagens\exclamation.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sair"/>
               </Properties>
@@ -76,64 +81,53 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
-                          <Component id="btLogar" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="tfLogin" max="32767" attributes="0"/>
+                          <Component id="pfSenha" pref="181" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
+                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="tfLogin" max="32767" attributes="0"/>
-                                  <Component id="pfSenha" pref="181" max="32767" attributes="0"/>
-                              </Group>
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="lbErro" min="-2" pref="181" max="-2" attributes="0"/>
+                                  <Component id="btLogar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="lbErro" min="-2" pref="181" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="lbTeste" min="-2" pref="128" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                  <EmptySpace pref="173" max="32767" attributes="0"/>
               </Group>
-              <Component id="lbTela" alignment="1" pref="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="lbTela" min="-2" pref="167" max="-2" attributes="0"/>
-                          <EmptySpace pref="52" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tfLogin" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="pfSenha" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lbErro" min="-2" pref="19" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="lbTeste" min="-2" pref="101" max="-2" attributes="0"/>
-                      </Group>
+                  <EmptySpace min="34" pref="253" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfLogin" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="pfSenha" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="btLogar" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbErro" min="-2" pref="19" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btLogar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -184,15 +178,13 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbTela">
+        <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel2"/>
+            <Property name="text" type="java.lang.String" value="Atualizar"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lbTeste">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jLabel2"/>
-          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

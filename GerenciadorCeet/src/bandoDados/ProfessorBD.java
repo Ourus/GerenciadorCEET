@@ -30,7 +30,7 @@ public class ProfessorBD extends FuncionarioBD {
             stm.executeUpdate();
             cadastrarFormacao(key, fp);
 
-        
+        JOptionPane.showMessageDialog(null, "Cadastro concluido com sucesso.", "Cadastro", 1);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
 
@@ -93,7 +93,7 @@ public class ProfessorBD extends FuncionarioBD {
     }
    
     public ArrayList<Professor> localizarProfessor(String nomeProfessor) {
-        ArrayList<Professor> listaPessoa = new ArrayList();
+        ArrayList<Professor> listaProfessor = new ArrayList();
 
         try {
             Professor novoPessoa;
@@ -121,7 +121,7 @@ public class ProfessorBD extends FuncionarioBD {
                 novoPessoa.setCargaHoraria(listasPessoaCadastradas.getFloat("cargaHoraria"));
                 novoPessoa.setCodDepartamento(listasPessoaCadastradas.getInt("codDepartamento"));
 
-                listaPessoa.add(novoPessoa);
+                listaProfessor.add(novoPessoa);
 
             }
 
@@ -131,7 +131,7 @@ public class ProfessorBD extends FuncionarioBD {
             desconectarBanco();
 
             //    novoPessoa.setEnderecos(listarEnderecoPessoa(novoPessoa));
-            return listaPessoa;
+            return listaProfessor;
         }
 
     }

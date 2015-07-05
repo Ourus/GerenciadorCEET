@@ -57,8 +57,9 @@ create table if not exists contato
  (
     codContato int unsigned not null auto_increment,
     codPessoa int unsigned not null,
-    tipo varchar(10) not null,
-    contato varchar (70),
+    email varchar(80),
+    telefone varchar (20),
+    celular varchar(20),
     primary key (codContato),
     foreign key (codPessoa) references pessoa (codPessoa) on delete cascade 
  );

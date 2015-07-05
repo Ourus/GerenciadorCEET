@@ -198,7 +198,6 @@ public class AlunoBD extends PessoaBD {
 
             conectarBanco();
             stm = con.createStatement();
-            JOptionPane.showMessageDialog(null, key);
 
             String sql = "insert into aluno (codAluno,matricula,certidaoNascimento,compEscolaridade,status,observacao)"
                     + "value(" + key + ",'" + aluno.getMatricula() + "','" + aluno.getCertidaoNascimento() + "',"
@@ -208,7 +207,6 @@ public class AlunoBD extends PessoaBD {
 
             stm.executeUpdate(sql);
 
-            System.out.println(key);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -226,7 +224,6 @@ public class AlunoBD extends PessoaBD {
 
             conectarBanco();
             stm = con.createStatement();
-            JOptionPane.showMessageDialog(null, key);
 
             String sql = "insert into aluno (codAluno,matricula,certidaoNascimento,compEscolaridade,status,observacao)"
                     + "value(" + key + ",'" + aluno.getMatricula() + "','" + aluno.getCertidaoNascimento() + "',"
@@ -236,7 +233,6 @@ public class AlunoBD extends PessoaBD {
 
             stm.executeUpdate(sql);
 
-            System.out.println(key);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -254,7 +250,6 @@ public class AlunoBD extends PessoaBD {
 
             conectarBanco();
             stm = con.createStatement();
-            JOptionPane.showMessageDialog(null, key);
 
             String sql = "insert into aluno (codAluno,matricula,certidaoNascimento,compEscolaridade,status,observacao)"
                     + "value(" + key + ",'" + aluno.getMatricula() + "','" + aluno.getCertidaoNascimento() + "',"
@@ -264,7 +259,6 @@ public class AlunoBD extends PessoaBD {
 
             stm.executeUpdate(sql);
 
-            System.out.println(key);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -282,7 +276,6 @@ public class AlunoBD extends PessoaBD {
 
             conectarBanco();
             stm = con.createStatement();
-            JOptionPane.showMessageDialog(null, key);
 
             String sql = "insert into aluno (codAluno,matricula,certidaoNascimento,compEscolaridade,status,observacao)"
                     + "value(" + key + ",'" + aluno.getMatricula() + "','" + aluno.getCertidaoNascimento() + "',"

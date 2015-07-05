@@ -23,7 +23,7 @@ public class LoginBD extends ConexaoBanco
             
             stm.executeUpdate(sql); 
             
-            JOptionPane.showMessageDialog(null, "Login "+loginRecebido.getLogin()+" cadastrado com sucesso!");
+            JOptionPane.showMessageDialog(null, "Usuario "+loginRecebido.getLogin()+" cadastrado com sucesso!");
             
         }catch(Exception e)
             {

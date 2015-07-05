@@ -15,7 +15,7 @@ public class ModeloTabelaLogin extends javax.swing.table.AbstractTableModel
 
     @Override
     public int getColumnCount() {
-        return 3;
+        return 2;
     }
     
     @Override
@@ -26,7 +26,6 @@ public class ModeloTabelaLogin extends javax.swing.table.AbstractTableModel
         {
             case 0: return login.getLogin();
             case 1: return login.getNivel();
-            case 2: return login.getSenha();
             default: return null;
         }
     }
@@ -36,9 +35,8 @@ public class ModeloTabelaLogin extends javax.swing.table.AbstractTableModel
     {
         switch(columnIndex)
         {
-            case 0: return "Nome";
+            case 0: return "Usuario";
             case 1: return "Nível";
-                 case 2: return "Senha";
             default: return null;
         }
     }

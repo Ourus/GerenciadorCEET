@@ -224,70 +224,75 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                                  <Component id="tfRG" min="-2" pref="129" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="tfDataExpedicao" min="-2" pref="87" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="tfOrgaoEmissor" max="32767" attributes="0"/>
-                              </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="cbxSexo" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="cbxCorRaca" min="-2" pref="106" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="tfNomeProfessor" min="-2" pref="289" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                                          <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cbxSexo" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="cbxEstado" min="-2" pref="133" max="-2" attributes="0"/>
+                                          <Component id="cbxCorRaca" min="-2" pref="106" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jFormattedTextField1" min="-2" pref="74" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                          <Component id="tfNaturalidade" min="-2" pref="123" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="tfNomeProfessor" min="-2" pref="289" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                                  <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="cbxEstado" min="-2" pref="133" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="ftDataNascimento" min="-2" pref="74" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                  <Component id="tfNaturalidade" min="-2" pref="123" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="tfCPF" min="-2" pref="124" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="tfTelefone" min="-2" pref="101" max="-2" attributes="0"/>
+                                          <Component id="tfCpf" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                          <Component id="tfRG" min="-2" pref="129" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="ftDataExpedicao" min="-2" pref="75" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="tfOrgaoEmissor" pref="63" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                          <Component id="tfTelefone" min="-2" pref="103" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="tfCelular" min="-2" pref="89" max="-2" attributes="0"/>
+                                          <Component id="tfCelular" min="-2" pref="95" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="55" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -303,7 +308,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="tfEmail" min="-2" pref="192" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -347,36 +352,36 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="tfNaturalidade" min="-2" max="-2" attributes="0"/>
-                      <Component id="jFormattedTextField1" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="ftDataNascimento" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jLabel20" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                           <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfDataExpedicao" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="tfOrgaoEmissor" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="tfRG" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ftDataExpedicao" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfCelular" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfCPF" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfCpf" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfCelular" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel8" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="tfEmail" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="tfEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="tfNomeMae" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -433,8 +438,6 @@
             <Property name="text" type="java.lang.String" value="Nome da M&#xe3;e:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tfCPF">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel29">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nome do Pai:"/>
@@ -447,8 +450,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="tfNomeMae">
         </Component>
-        <Component class="javax.swing.JTextField" name="tfTelefone">
-        </Component>
         <Component class="javax.swing.JTextField" name="tfNomePai">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
@@ -460,8 +461,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Naturalidade(Munic&#xed;pio):"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="tfCelular">
         </Component>
         <Component class="javax.swing.JTextField" name="tfNaturalidade">
         </Component>
@@ -480,11 +479,34 @@
         <Component class="javax.swing.JComboBox" name="cbxEstado">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="27">
+                <StringItem index="0" value="AC"/>
+                <StringItem index="1" value="AL"/>
+                <StringItem index="2" value="AP"/>
+                <StringItem index="3" value="AM"/>
+                <StringItem index="4" value="BA"/>
+                <StringItem index="5" value="CE"/>
+                <StringItem index="6" value="DF"/>
+                <StringItem index="7" value="ES"/>
+                <StringItem index="8" value="GO"/>
+                <StringItem index="9" value="MA"/>
+                <StringItem index="10" value="MT"/>
+                <StringItem index="11" value="MS"/>
+                <StringItem index="12" value="MG"/>
+                <StringItem index="13" value="PA"/>
+                <StringItem index="14" value="PB"/>
+                <StringItem index="15" value="PR"/>
+                <StringItem index="16" value="PE"/>
+                <StringItem index="17" value="PI"/>
+                <StringItem index="18" value="RJ"/>
+                <StringItem index="19" value="RN"/>
+                <StringItem index="20" value="RS"/>
+                <StringItem index="21" value="RO"/>
+                <StringItem index="22" value="RR"/>
+                <StringItem index="23" value="SC"/>
+                <StringItem index="24" value="SP"/>
+                <StringItem index="25" value="SE"/>
+                <StringItem index="26" value="TO"/>
               </StringArray>
             </Property>
           </Properties>
@@ -533,8 +555,6 @@
             <Property name="text" type="java.lang.String" value="Data de Expedi&#xe7;&#xe3;o:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tfDataExpedicao">
-        </Component>
         <Component class="javax.swing.JCheckBox" name="cbComprovReside">
           <Properties>
             <Property name="text" type="java.lang.String" value="Comp. Residencia"/>
@@ -559,7 +579,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbFotosActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
+        <Component class="javax.swing.JFormattedTextField" name="ftDataNascimento">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
               <Format format="##/##/####" subtype="-1" type="5"/>
@@ -573,6 +593,34 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbCertidaoActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="ftDataExpedicao">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+              <Format format="##/##/####" subtype="-1" type="5"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="tfCpf">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+              <Format format="###.###.###-##" subtype="-1" type="5"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="tfTelefone">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+              <Format format="(##) ####-####" subtype="-1" type="5"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="tfCelular">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+              <Format format="(##) #####-####" subtype="-1" type="5"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -918,11 +966,84 @@
         <Component class="javax.swing.JComboBox" name="cbxCidade">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="77">
+                <StringItem index="0" value="Afonso Claudio"/>
+                <StringItem index="1" value="Agua Doce do Norte"/>
+                <StringItem index="2" value="Aguia Branca"/>
+                <StringItem index="3" value="Alegre"/>
+                <StringItem index="4" value="Alfredo Chaves"/>
+                <StringItem index="5" value="Alto Rio Novo"/>
+                <StringItem index="6" value="Anchieta"/>
+                <StringItem index="7" value="Apiaca"/>
+                <StringItem index="8" value="Aracruz"/>
+                <StringItem index="9" value="Atilio Vivacqua"/>
+                <StringItem index="10" value="Baixo Guandu"/>
+                <StringItem index="11" value="Barra de Sao Francisco"/>
+                <StringItem index="12" value="Boa Esperanca"/>
+                <StringItem index="13" value="Bom Jesus do Norte"/>
+                <StringItem index="14" value="Brejetuba"/>
+                <StringItem index="15" value="Cachoeiro de Itapemirim"/>
+                <StringItem index="16" value="Cariacica"/>
+                <StringItem index="17" value="Castelo"/>
+                <StringItem index="18" value="Colatina"/>
+                <StringItem index="19" value="Conceicao da Barra"/>
+                <StringItem index="20" value="Conceicao do Castelo"/>
+                <StringItem index="21" value="Divino de Sao Lourenco"/>
+                <StringItem index="22" value="Domingos Martins"/>
+                <StringItem index="23" value="Dores do Rio Preto"/>
+                <StringItem index="24" value="Ecoporanga"/>
+                <StringItem index="25" value="Fundao"/>
+                <StringItem index="26" value="Guacui"/>
+                <StringItem index="27" value="Guarapari"/>
+                <StringItem index="28" value="Ibatiba"/>
+                <StringItem index="29" value="Ibiracu"/>
+                <StringItem index="30" value="Ibitirama"/>
+                <StringItem index="31" value="Iconha"/>
+                <StringItem index="32" value="Irupi"/>
+                <StringItem index="33" value="Itaguacu"/>
+                <StringItem index="34" value="Itapemirim"/>
+                <StringItem index="35" value="Itarana"/>
+                <StringItem index="36" value="Iuna"/>
+                <StringItem index="37" value="Jaguare"/>
+                <StringItem index="38" value="Jeronimo Monteiro"/>
+                <StringItem index="39" value="Joao Neiva"/>
+                <StringItem index="40" value="Laranja da Terra"/>
+                <StringItem index="41" value="Linhares"/>
+                <StringItem index="42" value="Mantenopolis"/>
+                <StringItem index="43" value="Marataizes"/>
+                <StringItem index="44" value="Marechal Floriano"/>
+                <StringItem index="45" value="Marilandia"/>
+                <StringItem index="46" value="Mimoso do Sul"/>
+                <StringItem index="47" value="Montanha"/>
+                <StringItem index="48" value="Mucurici"/>
+                <StringItem index="49" value="Muniz Freire"/>
+                <StringItem index="50" value="Muqui"/>
+                <StringItem index="51" value="Nova Venecia"/>
+                <StringItem index="52" value="Pancas"/>
+                <StringItem index="53" value="Pedro Canario"/>
+                <StringItem index="54" value="Pinheiros"/>
+                <StringItem index="55" value="Piuma"/>
+                <StringItem index="56" value="Ponto Belo"/>
+                <StringItem index="57" value="Presidente Kennedy"/>
+                <StringItem index="58" value="Rio Bananal"/>
+                <StringItem index="59" value="Rio Novo do Sul"/>
+                <StringItem index="60" value="Santa Leopoldina"/>
+                <StringItem index="61" value="Santa Maria de Jetiba"/>
+                <StringItem index="62" value="Santa Teresa"/>
+                <StringItem index="63" value="Sao Domingos do Norte"/>
+                <StringItem index="64" value="Sao Gabriel da Palha"/>
+                <StringItem index="65" value="Sao Jose do Calcado"/>
+                <StringItem index="66" value="Sao Mateus"/>
+                <StringItem index="67" value="Sao Roque do Canaa"/>
+                <StringItem index="68" value="Serra"/>
+                <StringItem index="69" value="Sooretama"/>
+                <StringItem index="70" value="Vargem Alta"/>
+                <StringItem index="71" value="Venda Nova do Imigrante"/>
+                <StringItem index="72" value="Viana"/>
+                <StringItem index="73" value="Vila Pavao"/>
+                <StringItem index="74" value="Vila Valerio"/>
+                <StringItem index="75" value="Vila Velha"/>
+                <StringItem index="76" value="Vitoria"/>
               </StringArray>
             </Property>
           </Properties>

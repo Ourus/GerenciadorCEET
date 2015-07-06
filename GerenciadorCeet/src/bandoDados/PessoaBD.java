@@ -465,7 +465,7 @@ public class PessoaBD extends Conexao {
     public void atualizarPessoa(Pessoa pessoa) {
         try {
             conectarBanco();
-            String sql = "update pessoa set nome = '" + pessoa.getNome() + "',rg='" + pessoa.getRG() + "',"
+            String sql = "update pessoa set senha ='"+pessoa.getSenha()+"',set nome = '" + pessoa.getNome() + "',rg='" + pessoa.getRG() + "',"
                     + "cpf='" + pessoa.getCpf() + "',naturalidade='" + pessoa.getNaturalidade() + "',"
                     + "dataNascimento='" + pessoa.getDataNacimento() + "',"
                     + "uf='" + pessoa.getUf() + "',nomePai='" + pessoa.getNomePai() + "',nomeMae='" + pessoa.getNomeMae() + "',"

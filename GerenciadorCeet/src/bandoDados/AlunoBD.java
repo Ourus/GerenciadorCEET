@@ -1,6 +1,7 @@
 package bandoDados;
 
 import com.mysql.jdbc.Blob;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -508,6 +509,38 @@ public class AlunoBD extends PessoaBD {
     }
 
     // Atualizar dados  do Aluno 
+    
+    public void AtualizarAluno(Aluno aluno, Endereco endereco, Contato contato)
+    {
+         super.atualizarPessoa(aluno);
+        super.atualizarContato(aluno, contato);
+        super.atualizarEndereco(aluno, endereco);
+        try 
+        {
+            conectarBanco();
+            String sql = "update aluno set  matricula= ?, set certidaoNascimentor=? "
+                    + ", set compEscolaridade =? ,set status= ?, set observacao =? where codPalavra="+aluno.getCodPessoa()+";";
+            PreparedStatement stm = con.prepareStatement(sql);
+            
+            stm.setString(1,aluno.getMatricula());
+            stm.setString(2, aluno.getCertidaoNascimento());
+            stm.setString(3, aluno.getComprovanteEscolarida());
+            stm.setString(4,aluno.getStatus());
+            stm.setString(5, aluno.getObservacao());
+            stm.executeUpdate();     
+            
+        }
+        catch (Exception e) 
+        {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }finally
+        {
+            desconectarBanco();
+        }
+       
+    }
+    
+    
     // Listar Aluno
     public ArrayList<Aluno> listarAluno() {
 

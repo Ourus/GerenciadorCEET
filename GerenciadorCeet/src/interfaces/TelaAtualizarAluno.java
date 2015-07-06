@@ -907,32 +907,27 @@ public class TelaAtualizarAluno extends javax.swing.JDialog {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(3, 3, 3))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
                         .addComponent(btConfirmarCadastro)
-                        .addGap(48, 48, 48)
+                        .addGap(59, 59, 59)
                         .addComponent(btLimpar)
-                        .addGap(40, 40, 40)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btCancelar)
-                        .addGap(63, 63, 63))))
+                        .addGap(67, 67, 67))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(508, 508, 508)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btConfirmarCadastro)
-                            .addComponent(btLimpar)
-                            .addComponent(btCancelar)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -942,8 +937,13 @@ public class TelaAtualizarAluno extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btConfirmarCadastro)
+                            .addComponent(btLimpar)
+                            .addComponent(btCancelar))))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -963,13 +963,7 @@ public class TelaAtualizarAluno extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btConfirmarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarCadastroActionPerformed
-        // TODO add your handling code here:
-        Calendar cal = Calendar.getInstance();
-        Calendar cal2 = Calendar.getInstance();
-        DecimalFormat format = new DecimalFormat("00");
-        cal.setTime((java.util.Date) dataExpedicao.getValue());
-        cal2.setTime((java.util.Date) dataNascimento.getValue());
-        System.out.println(cal.getTime());
+
 // aluno
         if(tfNomeAluno.getText().isEmpty() || tfNomeMae.getText().isEmpty() || tfNaturalidade.getText().isEmpty()
               || tfNomePai.getText().isEmpty() || tfRG.getText().isEmpty() || ftCPF.getText() == null || tfOrgaoEmissor.getText().isEmpty()
@@ -1013,7 +1007,7 @@ public class TelaAtualizarAluno extends javax.swing.JDialog {
         contatoN.setTelefone(ftTelefone.getText());
         contatoN.setCelular(ftCelular.getText());
 
-        alunob.cadastro(alunoN, enderecoN, contatoN);
+        alunob.AtualizarAluno(alunoN, enderecoN, contatoN);
         }
        
 

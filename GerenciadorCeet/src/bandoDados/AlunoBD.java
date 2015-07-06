@@ -512,22 +512,22 @@ public class AlunoBD extends PessoaBD {
     
     public void AtualizarAluno(Aluno aluno, Endereco endereco, Contato contato)
     {
-         super.atualizarPessoa(aluno);
+        super.atualizarPessoa(aluno);
         super.atualizarContato(aluno, contato);
         super.atualizarEndereco(aluno, endereco);
         try 
         {
             conectarBanco();
-            String sql = "update aluno set  matricula= ?, set certidaoNascimentor=? "
-                    + ", set compEscolaridade =? ,set status= ?, set observacao =? where codPalavra="+aluno.getCodPessoa()+";";
+            String sql = "update aluno set  matricula= ?, set certidaoNascimento=? "
+                    + ", set compEscolaridade =? ,set status= ?,set observacao =? where codPessoa="+aluno.getCodPessoa()+";";
             PreparedStatement stm = con.prepareStatement(sql);
             
             stm.setString(1,aluno.getMatricula());
-            stm.setString(2, aluno.getCertidaoNascimento());
-            stm.setString(3, aluno.getComprovanteEscolarida());
+            stm.setString(2,aluno.getCertidaoNascimento());
+            stm.setString(3,aluno.getComprovanteEscolarida());
             stm.setString(4,aluno.getStatus());
-            stm.setString(5, aluno.getObservacao());
-            stm.executeUpdate();     
+            stm.setString(5,aluno.getObservacao());
+            stm.executeUpdate();
             
         }
         catch (Exception e) 
@@ -575,6 +575,9 @@ public class AlunoBD extends PessoaBD {
                 novoPessoa.setCorRaca(listasPessoaCadastradas.getString("corRaca"));
                 novoPessoa.setSexo(listasPessoaCadastradas.getString("sexo"));
                 novoPessoa.setCompFoto(listasPessoaCadastradas.getString("compFoto"));
+                novoPessoa.setOrgaoEmissor(listasPessoaCadastradas.getString("orgaoEmissor"));
+                novoPessoa.setCompResidencia(listasPessoaCadastradas.getString("compResidencia"));
+                
 
                 listaPessoa.add(novoPessoa);
 

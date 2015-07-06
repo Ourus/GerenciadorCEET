@@ -212,7 +212,7 @@ public class PessoaBD extends Conexao {
         try {
             conectarBanco();
             String sql = "insert into pessoa (nome,rg,dataExpedicao,orgaoEmissor,cpf, naturalidade,dataNascimento,uf,"
-                    + "nomePai,nomeMae,foto,sexo,corRaca,compResidencia,compFoto) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+                    + "nomePai,nomeMae,foto,sexo,corRaca,compResidencia,compFoto,senha) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
             PreparedStatement stm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stm.setString(1, pessoa.getNome());
             stm.setString(2, pessoa.getRG());
@@ -230,6 +230,7 @@ public class PessoaBD extends Conexao {
             stm.setString(13, pessoa.getCorRaca());
             stm.setString(14, pessoa.getCompResidencia());
             stm.setString(15, pessoa.getCompFoto());
+            stm.setString(16, pessoa.getSenha());
             
             stm.executeUpdate();
 
@@ -279,7 +280,7 @@ public class PessoaBD extends Conexao {
 
 // ================= Metodos de destinada a buscar ==================
 // Buscar endereco de uma pessoa
-    public ArrayList<Endereco> listarEnderecoPessoa(Pessoa pessoa) {
+    public ArrayList<Endereco> listarEnderecoPessoa(int pessoa) {
         ArrayList<Endereco> listaEnderecoPessoa = new ArrayList();
 
         try {
@@ -287,17 +288,18 @@ public class PessoaBD extends Conexao {
             conectarBanco();
             Endereco endereco;
             stm = con.createStatement();
-            String sqlComando = "select * from endereco where codPessoa= " + pessoa.getCodPessoa();
+            String sqlComando = "select * from endereco where codPessoa= " + pessoa+";";
             ResultSet tabelaEnderecosPessoas = stm.executeQuery(sqlComando);
             while (tabelaEnderecosPessoas.next()) {
                 endereco = new Endereco();
-
+                
+            
                 endereco.setCidade(tabelaEnderecosPessoas.getString("cidade"));
                 endereco.setBairro(tabelaEnderecosPessoas.getString("bairro"));
                 endereco.setComplemento(tabelaEnderecosPessoas.getString("complemento"));
                 endereco.setCep(tabelaEnderecosPessoas.getString("cep"));
                 endereco.setUf(tabelaEnderecosPessoas.getString("uf"));
-                endereco.setRua(tabelaEnderecosPessoas.getString("endereco"));
+                endereco.setRua(tabelaEnderecosPessoas.getString("rua"));
                 endereco.setCodEndereco(tabelaEnderecosPessoas.getInt("codEndereco"));
 
                 listaEnderecoPessoa.add(endereco);
@@ -354,8 +356,6 @@ public class PessoaBD extends Conexao {
 
                 pessoaCadastrada.setCodPessoa(tabelaResultante.getInt("codPessoa"));
                 pessoaCadastrada.setCpf(tabelaResultante.getString("cpf"));
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(tabelaResultante.getDate("dataNascimento"));
                 pessoaCadastrada.setDataNacimento(tabelaResultante.getString("dataNascimento"));
                 pessoaCadastrada.setDataExpedicao(tabelaResultante.getString("dataExpedicao"));
                 pessoaCadastrada.setFoto((Blob) tabelaResultante.getBlob("foto"));
@@ -365,7 +365,11 @@ public class PessoaBD extends Conexao {
                 pessoaCadastrada.setNomePai(tabelaResultante.getString("nomePai"));
                 pessoaCadastrada.setRG(tabelaResultante.getString("rg"));
                 pessoaCadastrada.setUf(tabelaResultante.getString("uf"));
-
+                pessoaCadastrada.setSexo(tabelaResultante.getString("sexo"));
+                pessoaCadastrada.setCompResidencia(tabelaResultante.getString("compResidencia"));
+                pessoaCadastrada.setCompFoto(tabelaResultante.getString("compFoto"));
+                pessoaCadastrada.setOrgaoEmissor(tabelaResultante.getString("orgaoEmissor"));
+                pessoaCadastrada.setCorRaca(tabelaResultante.getString("corRaca"));
                 Pessoa.add(pessoaCadastrada);
 
         } catch (Exception e) {
@@ -391,6 +395,7 @@ public class PessoaBD extends Conexao {
                 novoPessoa.setCodPessoa(listasPessoaCadastradas.getInt("codPessoa"));
                 novoPessoa.setCpf(listasPessoaCadastradas.getString("cpf"));
                 novoPessoa.setDataNacimento(listasPessoaCadastradas.getString("dataNascimento"));
+                novoPessoa.setDataExpedicao(listasPessoaCadastradas.getString("dataExpedicao"));
                 novoPessoa.setFoto((Blob) listasPessoaCadastradas.getBlob("foto"));
                 novoPessoa.setNaturalidade(listasPessoaCadastradas.getString("naturalidade"));
                 novoPessoa.setNome(listasPessoaCadastradas.getString("nome"));
@@ -398,6 +403,12 @@ public class PessoaBD extends Conexao {
                 novoPessoa.setNomePai(listasPessoaCadastradas.getString("nomePai"));
                 novoPessoa.setRG(listasPessoaCadastradas.getString("rg"));
                 novoPessoa.setUf(listasPessoaCadastradas.getString("uf"));
+                novoPessoa.setSexo(listasPessoaCadastradas.getString("sexo"));
+                novoPessoa.setCompResidencia(listasPessoaCadastradas.getString("compResidencia"));
+                novoPessoa.setCompFoto(listasPessoaCadastradas.getString("compFoto"));
+                novoPessoa.setOrgaoEmissor(listasPessoaCadastradas.getString("orgaoEmissor"));
+                novoPessoa.setCorRaca(listasPessoaCadastradas.getString("corRaca"));
+                novoPessoa.setSenha(listasPessoaCadastradas.getString("senha"));
 
                 listaPessoa.add(novoPessoa);
 
@@ -408,7 +419,7 @@ public class PessoaBD extends Conexao {
         } finally {
             desconectarBanco();
 
-            //    novoPessoa.setEnderecos(listarEnderecoPessoa(novoPessoa));
+            //  novoPessoa.setEnderecos(listarEnderecoPessoa(novoPessoa));
             return listaPessoa;
         }
     }

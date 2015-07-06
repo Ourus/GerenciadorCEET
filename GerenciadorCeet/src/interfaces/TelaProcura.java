@@ -50,6 +50,7 @@ public class TelaProcura extends javax.swing.JDialog {
         tfMatricula = new javax.swing.JTextField();
         btVisualizar = new javax.swing.JButton();
         btExcluir = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -95,6 +96,13 @@ public class TelaProcura extends javax.swing.JDialog {
             }
         });
 
+        jButton1.setText("Atualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,11 +122,13 @@ public class TelaProcura extends javax.swing.JDialog {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(136, 136, 136)
+                .addGap(100, 100, 100)
                 .addComponent(btVisualizar)
-                .addGap(50, 50, 50)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btExcluir)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(91, 91, 91))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,7 +144,8 @@ public class TelaProcura extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btVisualizar)
-                    .addComponent(btExcluir))
+                    .addComponent(btExcluir)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -184,6 +195,20 @@ public class TelaProcura extends javax.swing.JDialog {
         tbProcura.updateUI();
     }//GEN-LAST:event_tfNomeKeyReleased
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if(tbProcura.getSelectedRow() != -1)
+        {
+            Pessoa pessoa = new Pessoa();
+            pessoa = modelo.retornarListaAlunos().get(tbProcura.getSelectedRow());
+            this.dispose();
+            TelaAtualizarAluno telaT = new TelaAtualizarAluno(pessoa);
+            telaT.setVisible(true);
+        }else
+        {
+            JOptionPane.showMessageDialog(rootPane, "Nenhum aluno selecionado", "Selecione um aluno", 0);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -229,6 +254,7 @@ public class TelaProcura extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btExcluir;
     private javax.swing.JButton btVisualizar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

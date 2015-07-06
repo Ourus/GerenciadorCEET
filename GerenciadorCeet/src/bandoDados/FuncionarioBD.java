@@ -17,14 +17,13 @@ public class FuncionarioBD extends PessoaBD {
         try {
             key = super.cadastro(funcionario, endereco, contato);
             conectarBanco();
-            String sql = "insert into funcionarios (codFuncionario, cargo, salario, cargaHoraria,codDepartamento, senha) values (?,?,?,?,?,?);";
+            String sql = "insert into funcionarios (codFuncionario, cargo, salario, cargaHoraria) values (?,?,?,?);";
             PreparedStatement stm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stm.setInt(1, key);
             stm.setString(2, funcionario.getCargo());
             stm.setFloat(3, funcionario.getSalario());
             stm.setFloat(4, funcionario.getCargaHoraria());
-            stm.setInt(5, funcionario.getCodDepartamento());
-            stm.setString(6, funcionario.getSenha());
+
             
             stm.executeUpdate();
             ResultSet codPessoa = stm.getGeneratedKeys();
@@ -71,7 +70,6 @@ public class FuncionarioBD extends PessoaBD {
                 novoPessoa.setCargo(listasPessoaCadastradas.getString("cargo"));
                 novoPessoa.setSalario(listasPessoaCadastradas.getFloat(" salario"));
                 novoPessoa.setCargaHoraria(listasPessoaCadastradas.getFloat("cargaHoraria"));
-                novoPessoa.setCodDepartamento(listasPessoaCadastradas.getInt("codDepartamento"));
 
                 listaPessoa.add(novoPessoa);
 

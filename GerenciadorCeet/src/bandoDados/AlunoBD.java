@@ -657,5 +657,9 @@ public ArrayList<Aluno> localizarAlunoDocumento(String nomeAluno)
     
 }
 
+    public Iterable<Endereco> listarEnderecoPessoa(AlunoBD aluno) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
 

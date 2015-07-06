@@ -7,8 +7,7 @@ public class Funcionario extends Pessoa {
     private float salario;
     private float cargaHoraria;
     private int codDepartamento;
-    private String senha;
-
+    
     public int getCodFuncionario() {
         return codFuncionario;
     }
@@ -49,12 +48,5 @@ public class Funcionario extends Pessoa {
         this.codDepartamento = codDepartamento;
     }
 
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
 
 }

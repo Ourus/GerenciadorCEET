@@ -26,7 +26,7 @@ create table if not exists pessoa
     senha varchar(100),
     dataExpedicao varchar(30),
     naturalidade varchar (20),
-    uf char (2),
+    uf varchar (8),
     nomeMae varchar (80),
     nomePai varchar (80),
     compResidencia enum('true','false'),
@@ -45,7 +45,7 @@ create table if not exists endereco
     codPessoa int unsigned not null,
     rua varchar(80),
     cidade varchar(45) not null,
-    uf char (2) not null,
+    uf varchar (8) not null,
     bairro varchar (20) not null,
     cep varchar (9) not null,
     complemento varchar(40) ,
@@ -72,10 +72,10 @@ create table if not exists funcionarios
     cargo varchar(20) not null,
     salario float,
     cargaHoraria float,
-    codDepartamento int unsigned,
+  --  codDepartamento int unsigned,
     primary key (codFuncionario),
     foreign key (codFuncionario) references pessoa (codPessoa) on delete cascade,
-    foreign key (codDepartamento) references departamento(codDepartamento)
+ --   foreign key (codDepartamento) references departamento(codDepartamento)
 );
 /* A Tabelea de professor tem que ser revista 
 pois e possivel ligar a tabela formação a tabela 
@@ -84,10 +84,10 @@ funcionario*/
 create table if not exists professor
 (
     codProfessor int unsigned not null,
-    codDepartamento int unsigned not null,
+   -- codDepartamento int unsigned not null,
     primary key (codProfessor),
     foreign key (codProfessor) references funcionarios (codFuncionario) on delete cascade,
-    foreign key (codDepartamento) references departamento (codDepartamento)
+--    foreign key (codDepartamento) references departamento (codDepartamento)
 );
 
 create table if not exists aluno

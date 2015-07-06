@@ -22,11 +22,11 @@ public class ProfessorBD extends FuncionarioBD {
         int key = 0;
         try {
             key = super.cadastroFuncionario(professor, endereco, contato);
+            JOptionPane.showMessageDialog(null, key);
             conectarBanco();
-            String sql = "insert into professor(codProfessor,codDepartamento)values(?,?);";
+            String sql = "insert into professor(codProfessor)values(?);";
             PreparedStatement stm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stm.setInt(1, key);
-            stm.setInt(2, professor.getCodDepartamento());
             stm.executeUpdate();
             cadastrarFormacao(key, fp);
 
@@ -44,12 +44,14 @@ public class ProfessorBD extends FuncionarioBD {
         int key = 0;
         try {
             key = super.cadastroFuncionario(professor, endereco, contato);
+            JOptionPane.showMessageDialog(null, "O numero é :"+key);
             conectarBanco();
             String sql = "insert into professor(codProfessor,codDepartamento)values(?,?);";
             PreparedStatement stm = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stm.setInt(1, key);
             stm.setInt(2, professor.getCodDepartamento());
             stm.executeUpdate();
+            
                for(FormacaoProfessor temp: fp)
            {
                cadastrarFormacao(key, temp);

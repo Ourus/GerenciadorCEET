@@ -160,7 +160,7 @@
                                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="lbCelular" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Email" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -299,7 +299,6 @@
                           <Component id="cbxEstado" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -317,7 +316,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="Email" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lbEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="tfEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="ftCPF" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -390,7 +389,7 @@
             <Property name="text" type="java.lang.String" value="Celular:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="Email">
+        <Component class="javax.swing.JLabel" name="lbEmail">
           <Properties>
             <Property name="text" type="java.lang.String" value="Email:"/>
           </Properties>

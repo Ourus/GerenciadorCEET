@@ -112,7 +112,7 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         lbTelefone = new javax.swing.JLabel();
         lbCelular = new javax.swing.JLabel();
-        Email = new javax.swing.JLabel();
+        lbEmail = new javax.swing.JLabel();
         tfEmail = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         tfRG = new javax.swing.JTextField();
@@ -213,7 +213,7 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
 
         lbCelular.setText("Celular:");
 
-        Email.setText("Email:");
+        lbEmail.setText("Email:");
 
         tfEmail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -387,7 +387,7 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
                                 .addGap(44, 44, 44)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lbCelular)
-                                    .addComponent(Email))
+                                    .addComponent(lbEmail))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -493,7 +493,6 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
                         .addComponent(jLabel31)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -509,7 +508,7 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(Email)
+                                    .addComponent(lbEmail)
                                     .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ftCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -977,14 +976,12 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
         enderecoN.setRua(tfRua.getText());
         enderecoN.setUf(cbxEstado.getSelectedItem() + "");
 // contato     
-        ArrayList<Contato> cont = new ArrayList();
 
-        contatoN.setEmail(Email.getText());
+        contatoN.setEmail(tfEmail.getText());
         contatoN.setTelefone(ftTelefone.getText());
         contatoN.setCelular(ftCelular.getText());
 
         alunob.cadastro(alunoN, enderecoN, contatoN);
-        cont.clear();
         }
        
 
@@ -1148,7 +1145,6 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Email;
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btConfirmarCadastro;
     private javax.swing.JButton btLimpar;
@@ -1212,6 +1208,7 @@ public class TelaCadastroAluno extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbCelular;
+    private javax.swing.JLabel lbEmail;
     private javax.swing.JLabel lbFoto;
     private javax.swing.JLabel lbQuais;
     private javax.swing.JLabel lbTelefone;

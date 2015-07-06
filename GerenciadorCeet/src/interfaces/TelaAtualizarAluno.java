@@ -1007,15 +1007,13 @@ public class TelaAtualizarAluno extends javax.swing.JDialog {
         enderecoN.setComplemento(tfNumCasa.getText());
         enderecoN.setRua(tfRua.getText());
         enderecoN.setUf(cbxEstado.getSelectedItem() + "");
-// contato     
-        ArrayList<Contato> cont = new ArrayList();
 
-        contatoN.setEmail(Email.getText());
+
+        contatoN.setEmail(tfEmail.getText());
         contatoN.setTelefone(ftTelefone.getText());
         contatoN.setCelular(ftCelular.getText());
 
         alunob.cadastro(alunoN, enderecoN, contatoN);
-        cont.clear();
         }
        
 

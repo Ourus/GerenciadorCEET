@@ -100,7 +100,7 @@ public class ProfessorBD extends FuncionarioBD {
         try {
             Professor novoPessoa;
             conectarBanco();
-            String sql = "select * from pessoa p ,professor a,funcionarios f where p.codPessoa = a.codProfessor and p.nome='" + nomeProfessor + "';";
+            String sql = "select * from pessoa p ,professor a,funcionarios f where p.codPessoa = a.codProfessor && p.nome='" + nomeProfessor + "';";
             stm = con.createStatement();
             ResultSet listasPessoaCadastradas = stm.executeQuery(sql);
             while (listasPessoaCadastradas.next()) {
@@ -121,7 +121,12 @@ public class ProfessorBD extends FuncionarioBD {
                 novoPessoa.setCargo(listasPessoaCadastradas.getString("cargo"));
                 novoPessoa.setSalario(listasPessoaCadastradas.getFloat("salario"));
                 novoPessoa.setCargaHoraria(listasPessoaCadastradas.getFloat("cargaHoraria"));
-                novoPessoa.setCodDepartamento(listasPessoaCadastradas.getInt("codDepartamento"));
+                novoPessoa.setSexo(listasPessoaCadastradas.getString("sexo"));
+                novoPessoa.setCompResidencia(listasPessoaCadastradas.getString("compResidencia"));
+                novoPessoa.setCompFoto(listasPessoaCadastradas.getString("compFoto"));
+                novoPessoa.setOrgaoEmissor(listasPessoaCadastradas.getString("orgaoEmissor"));
+                novoPessoa.setCorRaca(listasPessoaCadastradas.getString("corRaca"));
+
 
                 listaProfessor.add(novoPessoa);
 
@@ -138,13 +143,13 @@ public class ProfessorBD extends FuncionarioBD {
 
     }
     
-    public ArrayList<Professor> localizarProfessor() {
+    public ArrayList<Professor> listarProfessor() {
         ArrayList<Professor> listaProfessor = new ArrayList();
 
         try {
             Professor novoPessoa;
             conectarBanco();
-            String sql = "select * from pessoa p ,professor a,funcionarios f where p.codPessoa, = a.codProfessor;";
+            String sql = "select * from pessoa p ,professor a,funcionarios f where p.codPessoa = a.codProfessor && p.codPessoa = f.codFuncionario;";
             stm = con.createStatement();
             ResultSet listasPessoaCadastradas = stm.executeQuery(sql);
             while (listasPessoaCadastradas.next()) {
@@ -165,7 +170,11 @@ public class ProfessorBD extends FuncionarioBD {
                 novoPessoa.setCargo(listasPessoaCadastradas.getString("cargo"));
                 novoPessoa.setSalario(listasPessoaCadastradas.getFloat("salario"));
                 novoPessoa.setCargaHoraria(listasPessoaCadastradas.getFloat("cargaHoraria"));
-                novoPessoa.setCodDepartamento(listasPessoaCadastradas.getInt("codDepartamento"));
+                novoPessoa.setSexo(listasPessoaCadastradas.getString("sexo"));
+                novoPessoa.setCompResidencia(listasPessoaCadastradas.getString("compResidencia"));
+                novoPessoa.setCompFoto(listasPessoaCadastradas.getString("compFoto"));
+                novoPessoa.setOrgaoEmissor(listasPessoaCadastradas.getString("orgaoEmissor"));
+                novoPessoa.setCorRaca(listasPessoaCadastradas.getString("corRaca"));
 
                 listaProfessor.add(novoPessoa);
 

@@ -30,6 +30,7 @@ public class TelaProcura extends javax.swing.JDialog {
         initComponents();
         modelo.inserirListaAlunos(tb_aluno.listarAluno());
         tbProcura.setModel(modelo);
+        tbProcura.updateUI();
         this.getContentPane().setBackground(new Color(59,135,199));
     }
 

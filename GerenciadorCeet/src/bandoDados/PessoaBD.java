@@ -448,6 +448,11 @@ public class PessoaBD extends Conexao {
                 novoPessoa.setNomePai(listasPessoaCadastradas.getString("nomePai"));
                 novoPessoa.setRG(listasPessoaCadastradas.getString("rg"));
                 novoPessoa.setUf(listasPessoaCadastradas.getString("uf"));
+                novoPessoa.setOrgaoEmissor(listasPessoaCadastradas.getString("orgaoEmissor"));
+                novoPessoa.setCompResidencia(listasPessoaCadastradas.getString("compResidencia"));
+                novoPessoa.setCompFoto(listasPessoaCadastradas.getString("compFoto"));
+                novoPessoa.setCorRaca(listasPessoaCadastradas.getString("corRaca"));
+                novoPessoa.setSexo(listasPessoaCadastradas.getString("sexo"));
 
                 nomePessoa.add(novoPessoa);
 

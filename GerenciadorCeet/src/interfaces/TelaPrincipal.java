@@ -61,7 +61,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
         imAlunoCadastro = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu11 = new javax.swing.JMenu();
@@ -175,15 +174,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu8.setText("Alunos");
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setText("Atualizar");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu8.add(jMenuItem2);
-
         imAlunoCadastro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         imAlunoCadastro.setText("Cadastrar");
         imAlunoCadastro.addActionListener(new java.awt.event.ActionListener() {
@@ -289,13 +279,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TelaCadastro.setVisible(true);
     }//GEN-LAST:event_imAlunoCadastroActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        TelaAlunoAtualizar TelaAtualizar = new TelaAlunoAtualizar(this, rootPaneCheckingEnabled);
-        TelaAtualizar.setVisible(true);
-        
-        
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         TelaNovoUsuario TelaUsuario = new TelaNovoUsuario(this,rootPaneCheckingEnabled,0);
         TelaUsuario.setVisible(true);
@@ -392,7 +375,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

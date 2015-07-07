@@ -22,7 +22,6 @@ import javax.swing.JOptionPane;
  */
 public class Home extends javax.swing.JFrame {
     ArrayList contas = new ArrayList();
-    public int nivel;
     /**
      * Creates new form Home
      */
